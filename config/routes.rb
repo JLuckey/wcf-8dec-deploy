@@ -116,6 +116,7 @@ Wcf3::Application.routes.draw do
   match 'specimen/show',                      :to => 'specimen#show'
   match 'specimen/new',                       :to => 'specimen#new'
   match 'specimen/edit/on_field_change/:id',  :to => 'specimen#on_field_change#id'
+  match 'specimen/on_field_change',           :to => 'specimen#on_field_change'
   match 'specimen/edit/:id',                  :to => 'specimen#edit#id'
   match 'specimen/destroy/id',                :to => 'specimen#destroy#id'
   match 'specimen/update/id',                 :to => 'specimen#update#id'

@@ -41,7 +41,6 @@ include ApplicationHelper
     @specimen.submission_id = session[:submiss_id]
     @specimen.save
     session[:new_rec_id] = @specimen.id
-    redirect_to({:action => 'list'})
   end
 
   def update(my_specimen_id)
