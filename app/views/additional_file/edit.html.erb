@@ -1,0 +1,21 @@
+<h1>Section A - Editing Supplemental File</h1>
+
+<%= form_for(:additional_file, :url => {:action => :update, :id => @additional_file}) do |form| %>
+
+    File Name <br> <%= form.text_field('additional_file_name', {"readonly" => true} ) %>  <br> <br>
+
+    Description <br> <%= form.text_area('description', {:rows => "4", :cols => "60"} ) %> <br><br><br>
+
+  <%= submit_tag("Save Changes") %>
+<% end %>
+
+
+<%# form_tag :action => 'update', :id => @additional_file do %>
+  <%#= render :partial => 'form' %>
+  <%#= submit_tag 'Edit' %>
+<%# end %>
+
+
+
+<%#= link_to 'Show', :action => 'show', :id => @additional_file %>
+<%#= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,8 @@
+<h3 align="center">There are a few things you should know about this website</h3>
+<%=render(:file => 'account/splash_info.html')%>
+<br>
+<% form_for :user, :url => {:action => :save_show_splash} do |form| %>
+   <%= form.check_box(:show_splash, {}, 'N', 'Y') %> Do not show this page again <br> (this
+   info is also available on the Help page)<br><br>
+   <p> <%= submit_tag "Continue", :class => 'submit' %> </p>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>Section A - Overview </h1>
+<p><b>Title:</b>                        <%=h @submission.send('title') %> </p>
+<p><b>Spectral Category:</b>            <%=h @submission.send('spectral_category') %> </p>
+<p><b>Published Auger Deriv:</b>        <%=h @submission.send('pub_auger_deriv') %> </p>
+<p><b>Introduction:</b>                 <%=h @submission.introduction %> </p>
+<p><b>Abstract:</b>                     <%=h @submission.abstract %> </p>
+<p><b>Calib Spectra Published:</b>      <%=h @submission.calib_spectra_publ %> </p>
+<p><b>Specimen Spectra Published:</b>   <%=h @submission.specimen_spectra_publ %> </p>
+<p><b>Specimen Spectra Unpublished:</b> <%=h @submission.specimen_spectra_unpubl %> </p>
+<p><b>Created On:</b>                   <%=h( if @submission.created_on then @submission.created_on.strftime("%x") else '' end )%> </p>
+<p><b>Updated On:</b>                   <%=h( if @submission.updated_on then @submission.updated_on.strftime("%x") else '' end )%> </p>
+
+
+<%= link_to 'Edit', :action => 'edit', :id => @submission %>
+<p> </p>

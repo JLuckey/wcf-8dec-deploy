@@ -1,0 +1,33 @@
+<% form_tag(:controller => :submission, :action => :invite_user) do %>
+
+  <h2 align=center>Invite a new user to this Submission</h2>
+  <h4 align=center> Please complete the following info </h4>
+
+  <% if error_messages_for('iu') %>
+    <div align=center>
+      <%= error_messages_for('iu') %>
+    </div>
+  <% end %>
+
+  <div id="login_div1" style="position:relative; left:35%; height:215px">
+    <p><label for="First Name" align=left>First Name</label><br/>
+    <%= text_field('iu', 'first_name') %></p>
+
+    <p><label for="Last Name">Last Name</label><br/>
+    <%= text_field('iu', 'last_name') %></p>
+
+    <p><label for="EMail">EMail</label><br/>
+    <%= text_field('iu', 'email') %></p>
+
+    <p><%= submit_tag('Invite') %></p>
+
+  </div>
+  <br>  <br>
+  <div>
+
+  <p align=center>When you click Invite, the WECF System will send an invitation email
+  to the designated address... (more explanation to follow) </p>
+
+  </div>
+
+<% end %>

@@ -1,0 +1,30 @@
+<h1>Section E - Variable Instrument Parameters (paramsets table)</h1>
+
+<table  border=0px, cellpadding=4px, cellspacing=2px>
+  <tr>
+  <th>Param Set #</th>
+  <th>Source Label</th>
+  <th>Source Energy</th>
+  <th>Analyzer Constants</th>
+  <th>Analyzer Resolution</th>
+  <th>Technique</th>
+  </tr>
+
+<% for paramset in @paramsets %>
+  <tr>
+  <td align="center"><%=h paramset.seqnum %></td>
+  <td align="center"><%=h paramset.excitation_source_label %></td>
+  <td align="center"><%=h paramset.excite_src_char_energy %></td>
+  <td align="center"><%=h paramset.pass_energy_retard_rat %></td>
+  <td align="center"><%=h paramset.analyzer_resolution %></td>
+  <td align="center"><%=h paramset.technique %></td>
+  <td><%= link_to 'Show', :action => 'show', :id => paramset %></td>
+  <td><%= link_to 'Edit', :action => 'edit', :id => paramset %></td>
+  <td><%= link_to 'Delete', { :action => 'destroy', :id => paramset }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New paramset', :action => 'new' %>

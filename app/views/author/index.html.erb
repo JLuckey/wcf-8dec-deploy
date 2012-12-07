@@ -1,0 +1,38 @@
+<h1>Section A - Authors Listing </h1>
+
+<table cellpadding=5px cellspacing=1px >
+  <tr>
+    <th>Author #</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Organization</th>
+  </tr>
+
+<% for author1 in @authors %>
+  <tr>
+    <td><%=h author1.send('seqnum') %></td>
+    <td><%=h author1.send('fname') %></td>
+    <td><%=h author1.send('lname') %></td>
+    <td><%=h author1.send('organization_name') %></td>
+    <td><%= link_to('Show',   {:controller => 'author', :action => 'show',     :id => author1.id}) %></td>
+    <td><%= link_to('Edit',   {:controller => 'author', :action => 'edit',     :id => author1.id}) %></td>
+    <td><%#= link_to('Delete', {:controller => 'author', :action => 'del_author',  :id => author1.id}) %></td>
+  </tr>
+
+<!--
+    <td><%#= link_to_remote('Edit',
+                           :update => 'text_area',
+                           :url =>  {:controller => 'author', :action => 'edit', :id => author1.id}) %></td>
+
+    <td><%#= link_to_remote('Remove',
+                           :update => 'text_area',
+                           :url =>  {:controller => 'author', :action => 'destroy', :id => author1.id},
+                           :confirm => 'Remove author from this submission?') %></td>
+-->
+
+<% end %>
+</table>
+
+<br>
+<%= link_to('New Author', {:action => 'new'}) %>
+<br>

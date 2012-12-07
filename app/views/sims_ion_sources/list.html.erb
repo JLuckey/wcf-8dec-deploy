@@ -1,0 +1,29 @@
+<h1>Section D - Ion Source Listing </h1>
+<div> <%#= link_to "New", :action => 'new_submenu' %> </div>
+<table cellpadding=5px cellspacing=5px>
+  <tr>
+    <th>ion source #</th>
+    <th>ion source col 1 </th>
+    <th>ion source col 2 </th>
+    <th>ion source col 3 </th>
+  </tr>
+
+<% for ion_source in @ion_sources %>
+  <tr>
+    <td><%= ion_source.send('seqnum') %></td>
+    <td><%#= ion_source.send('host') %></td>
+    <td><%#= ion_source.send('cas_registry_number') %></td>
+    <td><%#= ion_source.send('chemical_name') %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => ion_source.id %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => ion_source.id %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => ion_source }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<br />
+<br />
+<div> <%= link_to "New Ion Source", :action => 'new_submenu' %> </div>
+
+<%#= link_to 'New ion source', :action => 'new' %>

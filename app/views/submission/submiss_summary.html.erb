@@ -1,0 +1,230 @@
+<head>
+	<title>Surface Science Spectra WECF :: Reviewing Submission 2</title>
+</head>
+
+<body>
+<font face="Arial" size="+3" color="#669900">Surface Science Spectra</font><br>
+<font face="Arial" size="+2"> WECF Submission Review, Submission <%= @submiss.id%> </font></font><br><hr>
+<h2><%= @submiss.title %></h2>
+
+<!--  Authors section -->
+<% @author_group_list.each { |author_group| %>
+<p><%= author_group.name_string  %> <br><em> <%= author_group.org_string %> </em></p>
+<% }%>
+
+<%#= get_author_lnames %>
+
+<p><font face="Arial"><strong>Abstract:</strong></font>
+<%= @submiss.abstract %></p>
+
+<p><font face="Arial"><strong>Keywords:</strong></font>
+<%= @kw_string %> </p>
+
+<p><font face="Arial"><strong>Major Elements in Spectrum: </strong></font>
+<%= @maj_element_string %> </p>
+
+<p><strong><font face="Arial">Minor Elements in Spectrum: </font></strong>
+<%= @min_element_string %> </p>
+
+
+<p><strong><font face="Arial">Printed Spectra: </font></strong>
+<%= @submiss.specimen_spectra_publ %></p>
+
+<p><strong><font face="Arial">Spectra in Electronic Record: </font></strong>
+7 ***** hardcoded! *****</p>
+
+<p><strong><font face="Arial">Spectral Category: </font></strong>
+<%= @submiss.category %></p> <br>
+
+<p><strong><font face="Arial">INTRODUCTION</font></strong>
+<hr align="left" width="100%">
+
+<p> <%= @submiss.introduction %> </p>
+<br>
+
+
+<strong><font face="Arial">B. SPECIMEN DESCRIPTION</font></strong>
+<hr align="left" width="100%">
+
+<% @specimens_list.each { |spec|     %>
+<h3>Specimen #<%= spec.seqnum %> </h3>
+<p><strong><font face="Arial">Host Material: </font></strong>
+<%= spec.host %></p>
+
+<p><strong><font face="Arial">Host Material Characteristics: </font></strong>
+<% a = Array.new %>
+<%  if spec.homogeneity     != '' then a.push(spec.homogeneity) end %>
+<%  if spec.crystallinity   != '' then a.push(spec.crystallinity) end%>
+<%  if spec.phase           != '' then a.push(spec.phase)  end%>
+<%  if spec.material_family != '' then a.push(spec.material_family) end %>
+<%  if spec.electrical_characteristic != '' then a.push(spec.electrical_characteristic) end %>
+<%  if spec.special_material_classes  != '' then a.push(spec.special_material_classes) end %>
+<%= a.join('; ') %> </p>
+
+<p><strong><font face="Arial">Chemical Name: </font></strong>
+<%= spec.chemical_name %> </p>
+
+<p><strong><font face="Arial">Source: </font></strong>
+***** where does this field come from? ****** </p>
+
+<p><strong><font face="Arial">Host Composition: </font></strong>
+<%=  spec.host_composition %> </p>
+
+<p><strong><font face="Arial">Form: </font></strong>
+<%=  spec.chemical_form %> </p>
+
+<p><strong><font face="Arial">Lot #: </font></strong>
+<%=  spec.lot_num %></p>
+
+<p><strong><font face="Arial">Structure:</font></strong>
+<%=  spec.chem_struct_formula %></p>
+
+<p><strong><font face="Arial">History & Significance:</font></strong>
+<%=  spec.history_significance %></p>
+
+<p><strong><font face="Arial">As Received Condition: </font></strong>
+<%=  spec.as_received_cond %></p>
+
+<p><strong><font face="Arial">Analyzed Region: </font></strong>
+<%=  spec.analyzed_region %></p>
+
+<p><font face="Arial"><strong><em>Ex Situ</em> Preparation/Mounting: </strong></font>
+<%=  spec.exsitu_preparation %></p>
+
+<p><font face="Arial"><strong><em>In Situ</em> Preparation:</strong></font>
+<%=  spec.insitu_preparation %></p>
+
+<p><strong><font face="Arial">Charge Control: </font></strong>
+<%=  spec.charge_control_cond %></p>
+
+<p><strong><font face="Arial">Temp. During Analysis: </font></strong>
+<%=  spec.specimen_temp_value %></p>
+
+<p><strong><font face="Arial">Pressure During Analysis: </font></strong>
+<%=  spec.max_chamber_press %></p>
+
+<br>
+<% } %>
+
+<br><br>
+<strong><font face="Arial">C. INSTRUMENT DESCRIPTION</font></strong><hr align="left" width="32EM">
+
+<% @instruments_list.each { |instr|     %>
+<%   field_list = get_html_form_fields('instruments', instr, session[:show_help]) %>
+<%=  render( :partial => 'layouts/sub_sum_field_group', :collection => field_list ) %>
+<br><br>
+<% } %>
+
+
+<strong><font face="Arial">E. VARIABLE INSTRUMENT PARAMETERS </font></strong>
+<hr align="left" width="40%">
+
+<%  @paramsets_list.each {|paramset|  %>
+<%    field_list = get_html_form_fields('paramsets', paramset, session[:show_help] )%>
+<%=   render( :partial => 'layouts/sub_sum_field_group', :collection => field_list ) %>
+<br><br>
+<hr>
+<% } %>
+
+<br><br>
+
+
+
+<strong><font face="Arial">DATA ANALYSIS METHOD</font></strong><hr align="left" width="25%">
+<%  @analysis_methods_list.each {|am|  %>
+<%    field_list = get_html_form_fields('analysis_methods', am, session[:show_help] )%>
+<%=   render( :partial => 'layouts/sub_sum_field_group', :collection => field_list ) %>
+<br><br>
+<% } %>
+
+
+<strong><font face="Arial">ACKNOWLEDGMENTS</font></strong><hr align="left" width="23%">
+<p><%= @submiss.acknowldegements %></p>
+<br><br>
+
+<strong><font face="Arial">REFERENCES </font></strong><hr align="left" width="15%"><br>
+<table cellspacing="2" cellpadding="4" border="1" width="90%">
+<!-- make table header  -->
+<%  field_list = get_html_form_fields('submission_references', @submiss_references_list[0], session[:show_help] ) %>
+    <tr>
+<%    field_list.each {|field|   %>
+        <td align="center"><strong><font face="Arial"> <%= "#{field.contrib_form_id} <br> #{field.field_label}" %></strong></font> </td>
+<%    } %>
+    </tr>
+
+<!-- start table data -->
+<%  @submiss_references_list.each {|sf| %>
+      <tr>
+<%    field_list = get_html_form_fields('submission_references', sf, session[:show_help]) %>
+<%    field_list.each { |fl| %>
+        <td> <%= fl.field_data %> </td>
+<%    } %>
+<%    ref_auths_list = ReferenceAuthor.find(:all, :conditions => ["submission_reference_id = ?", sf.id]) %>
+<%    auths_string = '' %>
+<%    ref_auths_list.each{|ra|  %>
+<%      auths_string = auths_string + "#{ra.fname} #{ra.lname}; "  %>
+<%    } %>
+      <tr>
+          <td colspan="20"><strong><font face="Arial">Authors: </font></strong><%= auths_string %> </td>
+      </tr>
+<%  } %>
+      </tr>
+</table>
+<br><br><br><br>
+<!-- end References section -->
+
+
+<strong><font face="Arial">I. SPECTRAL FEATURES </font></strong><hr align="left" width="25%"><br>
+<table cellspacing="2" cellpadding="4" border="1" width="90%">
+<!-- make table header  -->
+<%  field_list = get_html_form_fields('spectral_features', @spectral_features_list[0], session[:show_help] ) %>
+    <tr>
+<%    field_list.each {|field|   %>
+        <td align="center"> <%= "#{field.contrib_form_id} <br> #{field.field_label}"  %> </td>
+<%    } %>
+    </tr>
+
+<!-- start table data -->
+<%  @spectral_features_list.each {|sf| %>
+      <tr>
+<%    field_list = get_html_form_fields('spectral_features', sf, session[:show_help] ) %>
+<%    field_list.each { |fl| %>
+        <td align="right"> <%= fl.field_data %> </td>
+<%    } %>
+<%  } %>
+      </tr>
+</table>
+<!-- end Spectral Features section -->
+
+
+
+<br><br><br>
+<strong><font face="Arial">F. SPECTRA </font></strong>
+<hr align="left" width="20%"><br>
+<table cellspacing="2" cellpadding="4" border="1" width="90%">
+<!-- make table header  -->
+<%  field_list = get_html_form_fields('spectra', @spectra_list[0], session[:show_help] ) %>
+    <tr>
+<%    field_list.each {|field|   %>
+        <td align="center"> <%= "#{field.contrib_form_id} <br> #{field.field_label}"  %> </td>
+<%    } %>
+    </tr>
+
+<!-- start table data -->
+<%  @spectra_list.each {|sf| %>
+      <tr>
+<%    field_list = get_html_form_fields('spectra', sf, session[:show_help] ) %>
+<%    field_list.each { |fl| %>
+        <td align="right"> <%= fl.field_data %> </td>
+<%    } %>
+<%  } %>
+      </tr>
+</table>
+<br><br><br>
+<!-- end Spectra section -->
+
+--- End of Summary ---
+
+
+
+

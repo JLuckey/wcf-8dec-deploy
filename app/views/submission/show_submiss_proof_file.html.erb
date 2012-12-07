@@ -1,0 +1,26 @@
+<p><h3>Submission Proof Download Page</h3> </p>
+<p>This process may require 30-90 seconds to complete.  When the system has finished processing the Submission Proof, a link to its PDF file will appear on this page. </p>
+<p>Please do not re-start the process by clicking the "Submission Proof Report"
+link more than once (as this will only delay processing).</p>
+
+
+<p>File Name:</p>
+
+<div id="file_name_div">
+<p><a id="myhref" href="/submission/send_submiss_proof_file"></a></p>
+</div>
+
+<%#= periodically_call_remote(:url => {:action => 'get_file_status'},
+														 :update => 'myhref',
+														 :frequency => 3,
+														 :condition => "$('myhref').innerHTML == ''",
+														 :postion => :bottom
+														 )%>
+<!--
+*** Diagnostic Info *** <br>
+Command: <br>
+<%= session[:test_command]%>
+<br><br>
+Return Code: <%= session[:command_return_code] %> <br><br>
+***  End Diagnostic Info  ***
+-->

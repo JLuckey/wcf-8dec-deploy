@@ -1,0 +1,13 @@
+  <div id="site_nav_menu_div">
+    <ul id="site_nav_menu">
+			<% if session[:user_id]%>
+      	<li> <%= link_to('My Submissions', {:controller => 'submission', :action => 'show_my'} ) %> </li>
+      	<li> <%= link_to('My Profile', {:controller => 'user', :action => 'edit'} ) %> </li>
+			<% end %>
+      <li> <%#= link_to('Help', :controller => 'submission', :action => 'general_info' ) %> </li>
+      <li> <a href="mailto:Webmaster@PublishInSSS.com?">Contact Us</a> </li>
+      <% if session[:user_role] == 'admin' %>
+        <li> <%= link_to('Administration', {:controller => 'submission', :action => 'list_submiss_dump'} ) %> </li>
+      <% end %>
+    </ul>
+  </div>

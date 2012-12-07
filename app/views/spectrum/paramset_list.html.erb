@@ -1,0 +1,31 @@
+<h1>Section F - Editing Spectrum </h1>
+<div id="tab_test_div">
+  <% @current_page_flag = Array.new %>
+  <% @current_page_flag[2] = 'current' %>
+  <%= render(:partial => "tabs") %>
+</div>
+
+<h3>Paramsets for this Submission </h3>
+<table  border=0px, cellpadding=4px, cellspacing=2px>
+  <tr>
+  <th>Param Set #</th>
+  <th>Source Label</th>
+  <th>Source Energy</th>
+  <th>Analyzer Constants</th>
+  <th>Analyzer Resolution</th>
+  <th>Technique</th>
+  </tr>
+
+<% for paramset in @paramsets %>
+  <tr>
+  <td align="center"><%=h paramset.seqnum %></td>
+  <td align="center"><%=h paramset.excitation_source_label %></td>
+  <td align="center"><%=h paramset.excite_src_char_energy %></td>
+  <td align="center"><%=h paramset.pass_energy_retard_rat %></td>
+  <td align="center"><%=h paramset.analyzer_resolution %></td>
+  <td align="center"><%=h paramset.technique %></td>
+  <td><%= link_to 'Select', :action => 'select_paramset', :id => paramset %></td>
+  </tr>
+<% end %>
+</table>
+

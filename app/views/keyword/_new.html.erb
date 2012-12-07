@@ -1,0 +1,9 @@
+<h2>New keyword</h2>
+
+<%= form_for(:keyword_rec, :url => 'create') do |f| %>
+	Seq Num: <%= f.text_field( :seqnum, :size => 5 )%>  &nbsp &nbsp
+	Keyword: <%= f.text_field :keyword %> <br><br>
+  <%= f.submit('Save') %>
+<% end %>
+<br><br>
+<%#= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,12 @@
+<h1>User Contact info for <%= @user.first_name + ' ' + @user.last_name %> </h1>
+
+<% exclude_cols = %w[crypted_password salt created_at updated_at activated_at remember_token remember_token_expires_at activation_code] %>
+
+<% for column in User.content_columns %>
+<p>
+     <% if not exclude_cols.include?(column.name) then %>
+        <b><%= column.human_name %>:</b> <%=h @user.send(column.name) %>
+     <% end %>
+</p>
+<% end %>
+

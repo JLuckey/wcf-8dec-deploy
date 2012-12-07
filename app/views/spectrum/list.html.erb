@@ -1,0 +1,41 @@
+<h1>Section F - Spectra Listing</h1>
+
+<table border=0px, cellpadding=5px, cellspacing=2px>
+  <tr>
+    <th>Spectrum #</th>
+    <th>Specimen #</th>
+    <th>Data Filename</th>
+    <th>Specimen/ Calibration</th>
+    <th>Species/Transitions</th>
+  </tr>
+
+<% for spectrum in @spectrums %>
+  <% named_peaks = NamedPeak.find_all_by_spectrum_id(spectrum.id) %>
+  <% if named_peaks                   %>
+  <%   np_list = Array.new            %>
+  <%   for np in named_peaks          %>
+  <%     np_list.push("#{np.species_label} #{np.transition_label}") %>
+  <%   end %>
+  <%   np_string = np_list.join(', ') %>
+  <%   if np_string.length > 30 then  %>
+  <%     np_string = np_string.slice(0, 30) + '...' %>
+  <%   end                            %>
+  <% end                              %>
+  <tr>
+  <td align="center"><%=h spectrum.seqnum %></td>
+  <td align="center"><%=h spectrum.spec_seq %></td>
+  <td><%=h spectrum.data_filename %></td>
+  <td><%=h spectrum.specimen_calibration %></td>
+  <td><%=h np_string %></td>
+
+  <td><%= link_to 'Show', :action => 'show', :id => spectrum %></td>
+  <td><%= link_to 'Edit', :action => 'edit', :id => spectrum %></td>
+  <td><%= link_to 'Delete', { :action => 'destroy', :id => spectrum }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New spectrum', :action => 'new' %>
+<p></p>

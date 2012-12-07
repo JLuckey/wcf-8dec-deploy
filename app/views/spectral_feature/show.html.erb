@@ -1,0 +1,10 @@
+<h1><%= @show_pg_title %></h1>
+
+<% for column in SpectralFeature.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @spectral_feature.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => "edit_#{@edit_action}", :id => @spectral_feature %> |
+<%= link_to 'Back', :action => "list_#{@edit_action}" %>

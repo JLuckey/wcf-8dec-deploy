@@ -1,0 +1,18 @@
+<h1> Major Elements </h1>
+
+<%#= render :super %>
+
+<div id="tab_test_div">
+  <% @current_page_flag = Array.new %>
+  <% @current_page_flag[0] = 'current' %>
+  <%= render(:partial => "tabs") %>
+</div>
+
+<%= render :active_scaffold => 'major_element' %>
+<%#= render :partial => 'list_pagination' %>
+
+
+
+
+
+

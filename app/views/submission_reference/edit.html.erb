@@ -1,0 +1,23 @@
+<h1>Section A - Editing References</h1>
+
+<%= render :active_scaffold => 'reference_author' %>
+
+<br>
+
+<h3><%= "#{@edit_new_flag} Reference Data" %></h3>
+
+<% if @edit_new_flag.downcase == 'editing' %>
+<%   @TargUrl = {:action => 'update', :id => @submission_reference} %>
+<% else %>
+<%   @TargUrl = {:action => 'create'} %>
+<% end  %>
+
+<%= form_for(@submission_reference, :url => @TargUrl) do |f| %>
+  <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%= f.submit('Save') %>
+<% end %>
+
+<br>
+<%#= link_to 'Show', :action => 'show', :id => @submission_reference %>
+<%#= link_to 'Back', :action => 'list' %>
+<p></p>

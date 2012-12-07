@@ -1,0 +1,44 @@
+<h1>Section A - References Listing </h1>
+
+<table border="0" cellpadding="1" cellspacing="8">
+  <tr>
+    <th>Ref #</th>
+    <th>Author(s)</th>
+    <th>Title</th>
+  </tr>
+
+
+<% for submission_reference in @submission_references %>
+   <%	authors = ReferenceAuthor.find_all_by_submission_reference_id(submission_reference.id) %>
+	 <% alist = Array.new %>
+	 <% for author in authors %>
+	   <% alist.push( author.fname.to_s + ' ' + author.mname.to_s + ' ' + author.lname.to_s ) %>
+	 <% end %>
+	 <% namestring = alist.join(", ") %>
+	 <% if namestring.length > 30 then %>
+	 <%   namestring = namestring.slice(0, 30) + ' ... '%>
+	 <% end %>
+
+
+   <% str_title = submission_reference.send('title') %>
+   <% if str_title                                   %>
+   <%   if str_title.length > 50 then %>
+   <%     str_title = str_title.slice(0, 50) + ' ... ' %>
+   <%   end %>
+   <% end %>
+
+	<tr>
+    <td><%= h(submission_reference.send('seqnum')) %></td>
+    <td><%= namestring %></td>
+    <td><%= h(str_title)%></td>
+    <td><%#= link_to 'Show', :action => 'show', :id => submission_reference %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => submission_reference %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => submission_reference }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Submission Reference', :action => 'new' %>

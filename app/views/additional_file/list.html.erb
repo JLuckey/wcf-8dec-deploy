@@ -1,0 +1,30 @@
+<h1>Section A - Listing Supplemental Data Files</h1>
+<table cellpadding=5px cellspacing=1px >
+  <tr>
+    <th>File Name</th>
+    <th>Description</th>
+    <th>Created On</th>
+  </tr>
+
+<% for additional_file in @additional_files %>
+  <tr>
+    <td><%=h(additional_file.send('additional_file_name'))  %></td>
+    <% if additional_file.description != nil %>
+    <%   descrip_string = additional_file.description  %>
+    <%   if descrip_string.length > 80 then %>
+    <%     descrip_string = descrip_string.slice(0, 80) + ' ... '%>
+    <%   end %>
+    <% end %>
+
+    <td><%= descrip_string || ''%></td>
+    <td><%= if additional_file.created_on then additional_file.created_on.strftime('%m-%d-%y') end %></td>
+    <td><%= link_to('Show',   {:controller => 'additional_file', :action => 'show', :id => additional_file.id}) %></td>
+    <td><%= link_to('Edit',   {:controller => 'additional_file', :action => 'edit', :id => additional_file.id}) %></td>
+    <td><%= link_to('Delete', { :action => 'destroy', :id => additional_file }, :confirm => 'Are you sure?', :method => :post )%></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to 'New File', :action => 'new' %>
+
+

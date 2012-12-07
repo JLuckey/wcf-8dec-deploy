@@ -1,0 +1,8 @@
+<% for column in AdditionalFile.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @additional_file.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @additional_file %> |
+<%= link_to 'Back', :action => 'list' %>

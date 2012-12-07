@@ -1,0 +1,11 @@
+<h1><%=@title %> </h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<p>Find me in app/views/users/new.html.erb</p>

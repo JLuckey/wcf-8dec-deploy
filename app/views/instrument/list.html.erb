@@ -1,0 +1,30 @@
+<h1>Section C - Instruments Listing</h1>
+
+<table cellpadding=5px cellspacing=5px>
+  <tr>
+    <th> Manufacturer </th>
+    <th> Model </th>
+    <th> Instrument Name </th>
+  </tr>
+
+<% for instrument in @instruments %>
+  <tr>
+    <td><%=h instrument.send('manufacturer') %></td>
+    <td><%=h instrument.send('model') %></td>
+    <td><%=h instrument.send('instrument_name') %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => instrument %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => instrument %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => instrument }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'New Instrument', :action => 'new' %>
+<br>
+<br>
+<%= link_to 'Copy an Instrument already on file', :action => 'list_existing' %>
+
+
+<p> </p>

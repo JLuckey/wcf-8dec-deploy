@@ -1,0 +1,42 @@
+   <table cellpadding=5px cellspacing=1px >
+    <tr>
+      <th>Seqnum</th>
+      <th>Keyword</th>
+    </tr>
+    <% for keyword in @keywords %>
+      <tr>
+        <td><%=h(keyword.send('seqnum')) %></td>
+        <td><%=h(keyword.send('keyword'))  %></td>
+        <td><%= link_to_remote('Edit',
+                               :url    => {:action => 'edit', :id => keyword.id},
+                               :update => 'keyword_table_div') %></td>
+
+        <td><%= link_to_remote('Delete',
+                               :url     => {:action => 'destroy_keyword', :id => keyword.id},
+                               :update  => 'keyword_table_div',
+                               :confirm => "Delete #{keyword.keyword}?") %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% if @show_fields %>
+  <% if @mode == 'new_keyword' %>
+      <% the_action       = 'create' %>
+      <% the_button_label = 'Save' %>
+  <% else %>
+      <% the_action       = 'update' %>
+      <% the_button_label = 'Update' %>
+  <% end %>
+
+  <% remote_form_for( :keyword_rec,
+                      :url    => {:action => the_action, :id => @keyword_rec.id},
+                      :update => 'keyword_table_div') do |formvar|  %>
+     SeqNum:   Keyword:    <br>
+     <%= formvar.text_field :seqnum,  :size => 6 %>
+     <%= formvar.text_field :keyword, :size => 40 %>
+     <%= submit_tag the_button_label %>
+  <% end %>
+
+<% end %>
+
+

@@ -1,0 +1,11 @@
+<!-- <h1>Section I - <%#= "#{@edit_new_flag} Spectral Feature" %></h1>  -->
+<h1> <%= "#{@edit_pg_title}" %> </h1>
+
+<%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+
+<br>
+<p>
+<%#= link_to 'Show', :action => "show_#{@edit_action}", :id => @spectral_feature %>
+<%#= link_to 'Back', :action => 'list' %>
+<%#= link_to 'Back', :action => "#{@back_url}" %>
+</p>

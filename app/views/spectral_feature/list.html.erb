@@ -1,0 +1,16 @@
+<h1><%= @list_pg_title %></h1>           <%# Title is something like: Section I - Spectral Features Listing %>
+
+
+	<% if @spectral_feat_tbl_unit %>
+	  <%= render :partial => 'spectral_feat_tbl_unit/form' %>
+	<br><br>
+	<% end %>
+  <%= link_to( 'New', :action => "new_#{@edit_action}" )%>
+	<%= render :partial => 'spect_feat_list' %>
+
+<br>
+<%= link_to( 'New', :action => "new_#{@edit_action}" )%>
+<p></p>
+
+
+

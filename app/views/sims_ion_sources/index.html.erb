@@ -1,0 +1,21 @@
+<h1>Listing sims_ion_sources</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sims_ion_sources.each do |sims_ion_source| %>
+  <tr>
+    <td><%= link_to 'Show', sims_ion_source %></td>
+    <td><%= link_to 'Edit', edit_sims_ion_source_path(sims_ion_source) %></td>
+    <td><%= link_to 'Destroy', sims_ion_source, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sims ion source', new_sims_ion_source_path %>

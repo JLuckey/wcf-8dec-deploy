@@ -1,0 +1,272 @@
+WCF Converstion to Rails 3 DevNotes
+
+30 Nov 2011
+How to setup Rails Dev Environment:
+
+Things you need:
+These are Putty sessions to the Linux VM that is running the Rails app
+
+1. Mount the x: drive to appropriate mount point:
+    sudo mount -t vboxsf wcf3proj /apps/wcf3
+
+2. Rails web server running in Development mode - [rails s(erver) - from app dir]
+
+3. RSpec session, to run Rspec tests - [bundle exec rspec spec/controllers - from app dir - runs all tests in that folder]
+    Or use this command: rspec spec/controllers --drb  (the --drb tells it to use the Spork server and speeds it up, a lot)
+    the --drb flag (Distributed Ruby - allows Ruby programs to communicate with each other on the same machine or over a network. DRb uses remote method invocation (RMI) to pass commands and data between processes.)
+
+4. Spork running to speed-up RSpec test runs - [bundle exec spork, from app dir]
+
+
+Optional
+5. mySQL connection
+
+6. General Purpose connection
+
+
+5 Jun 2012
+1. refactor is_member_of to a central location, if possible
+2. remove old/obsolete _form.html.erb fiels from view folders
+3. 
+
+
+Steps to connect to MySQL & set-up RSpec for a new project:
+14 May 2012
+
+1. rails new AppName -d mysql    ->  new app w/ mySQL db
+2. Copy RSpec-specific stuff from other app into Gemfile
+3. bundle install
+4. Run rails g rspec:install
+
+
+Considerations When Upgrading
+Re-factor for:
+
+thin controllers
+fat models
+use helpers
+create tests
+
+
+3 May 2012
+  1. Re-work Controllers & Views to be compatible w/ new AutoSave capability
+  2. Review existing Bug List
+
+
+
+2 May 2012
+D 1. Add new ajax technique (:onchange in text_field()) to FormBuilder
+
+D 2. Begin analysis of new SIMS schema from DR
+
+D 3. Confirm that HTML widgets used in _field_group_html.erb support the :onchange option
+
+
+
+20 Apr 2012
+  1. Make sure to test "New" functionality on all objects, due to the special logic as in 
+     Instrument Controller "New" method (and most others)
+
+  2. Dump Lookup table to search for inconsitencies
+
+D 3. Review DR email from 17 Apr   
+
+D 4. Ajax AutoSave?
+
+  5. Why do Instrument routes work w/o :id?
+
+D 6. Push to Git 
+
+
+
+
+
+12 Apr 2012
+1. Replace verify method in Controllers - apparently not needed for RESTful routes, but you're
+   not using RESTful???
+
+
+13 Mar 2012
+Not worring too much about RESTful routing - just adding routes to routes.rb as needed.
+
+
+20 Feb 2012
+Convert Functionality 
+Write Tests
+Re-factor 
+
+Conversion from old Prototype AJAX Javascript library to Unobtrusive JavaScript requires
+re-writing a AJAX functionality.
+
+Since observe_field (and other javaScript helpers) are not supported in Rails 3 and the
+conversion to that functionality is not trivial, I plan to re-write all d/e forms using
+'standard' Submit buttons to save the form data.  Then investigate the best way to convert
+to AJAX 'auto-save' functionality from previous version.  [13 Mar 2012]
+
+
+To-do List:
+      1. <%#= error_messages_for :user %>  from signup.html.erb  - doesn't work in Rails 3?
+      2. review params hash from account_controller - user info is in nested hash?
+      3. Convert Forgot Your Passsword? funtionality
+Done  4. Get Login to work
+Done  5. Get Submission Nav Bar working [13Mar2012]
+Done  6. Get Submission Editing working
+      7. Test all methods in Account_Controller
+      8. Convert all items in SubmissNavBar
+
+
+Get login to work - Notes: 
+1. Do analysis route-by-route
+2. Re-factor login controller & views
+3. Write some tests
+
+Get Submission Nav Bar to work - Notes:
+  1. Re-factor controllers & views
+  
+  2. Write some tests
+
+D 3. Convert Form Builder to Rails 3
+
+D 4. Convert ActiveScaffold to new Rails 3 version
+
+  5. Refactor SubmissionController - fat model/thin controller/use helpers
+
+  6. Make Logout action clear Session
+
+
+
+
+16 Feb 2012
+Files to Move for Conversion to Rails 3.1
+
+User, Login, etc.
+1. Models
+    - user.rb
+    - user_notifier.rb
+    - user_observer.rb
+    - invitee_user.rb
+    - submiss_user.rb
+
+2. Controllers
+    - user_controller.rb
+    - account_controller.rb
+
+3. Views - folders
+    - account
+    - user
+    - user_notifer
+
+
+4 Jan 2010
+Steps to convert from old to Rails 3.1
+
+1. Move Controller
+2. Move Model
+3. Move View folder, rename .rhtml files to .html.erb
+4. Check new files into git
+5. Update routes.rb - consider RESTful routes
+6. In template files change <% %> to <%= %> where appropriate
+7. Get new versions of plug-ins
+8. Devise tests
+
+
+
+31 Jan 2012
+  1. Use controller.sign_in(user) in spec_helper.rb in test_sign_in(user) method
+  2. rspec have_selector erroneously returns true even when :content evals to null
+
+
+
+26 Jan 2012
+To-do
+  1. debug:  it "should return the user on password/email match" do  test in user_spec.rb.  User.authenticate method is
+     working but test fails - don't have time to debug right now.
+ 
+  u = User.create({ :login => 'gbush', :email => 'gb@wh.gov', :password => 'foobar', :password_confirmation => 'foobar' })
+
+
+23 Jan 2012
+TDD Dev Sequence
+
+1. Consider new feature/page
+2. Devise & code 1 or 2 tests - they should fail
+3. Code to make tests green
+4. Repeat
+
+
+
+
+1 Nov 2011
+
+Tuesday to-dos in prep for setting-up new Rails environment
+
+
+D   1. What is latest version of Rails & do all WCF-necessary plugins work with it?
+
+D   2. What is the Asset Pipeline & why do I want one?
+
+    3. 
+
+
+gem install activerecord-mysql2-adapter
+
+therubyracer
+
+
+
+3 Nov 2011 - wcf setup sequence
+
+  sudo mount -t vboxsf wcf3proj /apps/wcf3
+
+  1. rails new wcf3 -d mysql -T
+  2. add lines to Gemfile
+  3. bundle install
+  4. add a Javascript runtime - therubyracer - by adding: gem 'execjs' gem 'therubyracer' to Gemfile
+  5. rails generate rspec:install
+  6. test step 5 w/ bundle exec rspec spec/
+  7. configure database in config/database.yml
+  8. start server & test app
+  9. setup git; git init from app root dir
+ 10. 
+
+
+
+12 Aug 2011
+
+
+How to subdivide the work logically?
+
+by Controller
+by Model
+by feature
+by screen/page -> Submission Nav Bar item
+
+
+Recon plugins, modules, add-ins & find 3.1 versions/equivalents
+1. ActiveScaffold
+2. 
+
+Reasonable Place to Start? by screen/page
+
+1. Home/login page
+2. My submissions
+3. Forgot password
+4. Registration Page
+
+
+
+Linux/VirtualBox Shared Folder Command
+
+sudo mount -t vboxsf wcf3proj           /apps/wcf3
+                      folder share name   mount point
+
+
+Things I want to know about
+12 Aug 2011
+
+1. Gems & Bundler
+2. Routes in 3.1
+3. Testing & Rspec
+4. 
+
+

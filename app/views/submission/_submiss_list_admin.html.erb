@@ -1,0 +1,32 @@
+<table id="tbl_submiss_list" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+  <% 1.times do %>
+    <th> ID + Rev </th>
+
+    <th> Submiss ID </th>
+    <th> SSS ID </th>
+    <th> Title </th>
+    <th> Created On </th>
+    <th> Last Edit </th>
+    <th> Status </th>
+    <th> Status Date </th>
+  <% end %>
+  </tr>
+
+<% for rec in @submissions%>
+    <tr>
+    <td align=center><%= "#{rec.parent_id}-#{rec.revision_num}" %> </td>
+
+    <td align=center><%= rec.id %> </td>
+    <td><%= rec.sss_ms_num %> </td>
+    <td><%= rec.title %> </td>
+    <td><%= if rec.created_on then rec.created_on.strftime('%m-%d-%y') else '' end %> </td>
+    <td><%= if rec.updated_on then rec.updated_on.strftime('%m-%d-%y') else '' end %> </td>
+    <td><%= rec.submiss_status %> </td>
+    <td><%= if rec.submiss_status_date then rec.submiss_status_date.strftime('%m-%d-%y') else '' end %> </td>
+
+    <td><%= link_to 'Dump', :action => 'dump_submiss', :id => rec %></td>
+    <td><%= link_to 'Edit', :action => 'admin_edit', :id => rec %></td>
+  </tr>
+<% end %>
+</table>

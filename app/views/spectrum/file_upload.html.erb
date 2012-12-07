@@ -1,0 +1,28 @@
+<h1>Section F - Editing Spectrum </h1>
+<div id="tab_test_div">
+  <% @current_page_flag = Array.new %>
+  <% @current_page_flag[1] = 'current' %>
+  <%= render(:partial => "tabs") %>
+</div>
+<br>
+<%= form_for(:spectrum,
+            :url  => {:action => 'save_data_file'},
+            :html => {:multipart => true} ) do |form| %>
+    Spectrum Data File:  <%= form.file_field('uploaded_file', {"size" => 80})  %> <br>
+<br>
+  <%= submit_tag("Upload Data File") %>
+<% end %>
+
+<br>
+<br>
+<br>
+
+<%= form_for(:spectrum,
+            :url  => {:action => 'save_data_file'},
+            :html => {:multipart => true} ) do |form| %>
+    Spectrum Image File:  <%= form.file_field('uploaded_img_file', {"size" => 80})  %> <br>
+<br>
+  <%= submit_tag("Upload Image File") %>
+<% end %>
+
+

@@ -1,0 +1,13 @@
+<h1>Section A - <%= @edit_new_flag %> Author</h1>
+
+<% if @edit_new_flag.downcase == 'editing' %>
+<%   @TargUrl = {:action => 'update', :id => @author} %>
+<% else %>
+<%   @TargUrl = {:action => 'create'} %>
+<% end  %>
+
+<%#= form_for(@author, :url => @TargUrl) do |f| %>
+  <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%#= f.submit %>
+<%# end %>
+<br><br>

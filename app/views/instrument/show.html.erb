@@ -1,0 +1,12 @@
+<h1>Section C - Instrument Summary </h1>
+
+<% for column in Instrument.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @instrument.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @instrument %> |
+<%= link_to 'Back', :action => 'list' %>
+
+<p> </p>

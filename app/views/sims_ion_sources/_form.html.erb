@@ -1,0 +1,17 @@
+<%= form_for(@sims_ion_source) do |f| %>
+  <% if @sims_ion_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sims_ion_source.errors.count, "error") %> prohibited this sims_ion_source from being saved:</h2>
+
+      <ul>
+      <% @sims_ion_source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

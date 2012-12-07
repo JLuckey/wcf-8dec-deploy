@@ -1,0 +1,21 @@
+<h1>Section H - Analysis Methods </h1>
+<% if @analysis_method %>
+  <% for column in AnalysisMethod.content_columns %>
+  <p>
+    <b><%= column.human_name %>:</b> <%=h @analysis_method.send(column.name) %>
+  </p>
+  <% end %>
+<%= link_to 'Edit', :action => 'edit', :id => @analysis_method %>
+
+<% else %>
+  <% for column in AnalysisMethod.content_columns %>
+  <p>
+    <b><%= column.human_name %>:</b> -
+  </p>
+  <% end %>
+  <br>
+  <br>
+<%= link_to 'New Analysis Method', :action => 'new' %>
+
+<% end %>
+

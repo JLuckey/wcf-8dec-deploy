@@ -1,0 +1,278 @@
+Wcf3::Application.routes.draw do
+  resources :test_planes do as_routes end
+
+  resources :teams do as_routes end
+
+  resources :major_element do as_routes end  # as_routes = ActiveScaffold routes
+  resources :minor_element do as_routes end
+
+  resources :reference_author do as_routes end
+
+  # get "users/show"
+  # get "users/new"
+
+  # get "session/new"
+
+  # Test routes - 30 Apr 2012
+  match 'specimen/edit_of_test/:id',   :to => 'specimen#edit_of_test#id'
+  match 'specimen/on_field_change/:id',   :to => 'specimen#on_field_change#id'
+  match 'specimen/edit_of_test/on_field_change/:id',   :to => 'specimen#on_field_change#id'
+
+
+  root :to => 'pages#home'
+
+  get "pages/home"
+
+  get "pages/contact"
+
+  get "pages/about"
+
+  # resources :spectrum
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :users
+
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+
+  # Transferred from existing WCF
+  match 'account/login',            :to => 'account#login'
+  match 'account/index',            :to => 'account#index'
+  match 'account/signup',           :to => 'account#signup'
+  match 'account/save_show_splash', :to => 'account#save_show_splash'
+
+  match 'additional_file/list',         :to => 'additional_file#list'
+  match 'additional_file/new',          :to => 'additional_file#new'
+  match 'additional_file/create',       :to => 'additional_file#create'
+  match 'additional_file/show',         :to => 'additional_file#show'
+  match 'additional_file/edit/:id',     :to => 'additional_file#edit#:id'
+  match 'additional_file/destroy/:id',  :to => 'additional_file#destroy#:id'
+  match 'additional_file/update/:id',   :to => 'additional_file#update#:id'
+
+  match  'analysis_method/show',
+  :to => 'analysis_method#show'
+  match  'analysis_method/edit',
+  :to => 'analysis_method#edit'
+  match  'analysis_method/update',
+  :to => 'analysis_method#update'
+  match  'analysis_method/on_field_change/:id',
+  :to => 'analysis_method#on_field_change#:id'
+  match  'analysis_method/new',
+  :to => 'analysis_method#new'
+
+
+#  resources :authors
+  match 'author/list',                  :to => 'author#list'
+  match 'author/show',                  :to => 'author#show'
+  match 'author/new',                   :to => 'author#new'
+  match 'author/edit/on_field_change/:id',  :to => 'author#on_field_change#id'
+  match 'author/on_field_change',           :to => 'author#on_field_change'
+  match 'author/edit/:id',                  :to => 'author#edit#id'
+  match 'author/del_author',            :to => 'author#del_author'
+  match 'author/update/id',             :to => 'author#update#id'
+  match 'author/create',                :to => 'author#create'
+
+  match 'exp_variable/list',            :to => 'exp_variable#list'
+
+  match 'instrument/list',                      :to => 'instrument#list'
+  match 'instrument/show',                      :to => 'instrument#show'
+  match 'instrument/new',                       :to => 'instrument#new'
+  match 'instrument/edit/on_field_change/:id',  :to => 'instrument#on_field_change#id'
+  match 'instrument/edit/:id',                  :to => 'instrument#edit#id'
+  match 'instrument/destroy',                   :to => 'instrument#destroy'
+  match 'instrument/create',                    :to => 'instrument#create'
+  match 'instrument/list_existing',             :to => 'instrument#list_existing'
+  
+  match 'keyword/list',                 :to => 'keyword#list'
+  match 'keyword/show',                 :to => 'keyword#show'
+  match 'keyword/new',                  :to => 'keyword#new'
+#  match 'keyword/destroy/:id',              :to => 'keyword#destroy/id'  
+  match 'keyword/destroy',              :to => 'keyword#destroy'    # why does this work w/o id param, above???JL
+  match 'keyword/edit/:id',              :to => 'keyword#edit#id'
+  match 'keyword/update/:id',               :to => 'keyword#update#id'
+  match 'keyword/create',               :to => 'keyword#create'
+
+  match 'page_test/show_tabs',          :to => 'page_test#show_tabs'
+  match 'page_test/show_tab2',          :to => 'page_test#show_tab2'
+
+  match 'paramset/list/id',             :to => 'paramset#list#id'
+  match 'paramset/show/:id',            :to => 'paramset#show#id'
+  match 'paramset/edit/:id',            :to => 'paramset#edit#id'
+
+  match  'paramset/edit/on_field_change/:id',  
+  :to => 'paramset#on_field_change#id'
+  
+  match 'paramset/destroy/:id',         :to => 'paramset#destroy#id'
+  match 'paramset/update/:id',          :to => 'paramset#update#id'
+  match 'paramset/new',                 :to => 'paramset#new'
+
+  match 'major_element/id',             :to => 'major_element#id'
+
+  # match 'reference_author/id',          :to => 'reference_author#id'
+
+#  resources :specimen
+  match 'specimen/list',                      :to => 'specimen#list'
+  match 'specimen/show',                      :to => 'specimen#show'
+  match 'specimen/new',                       :to => 'specimen#new'
+  match 'specimen/edit/on_field_change/:id',  :to => 'specimen#on_field_change#id'
+  match 'specimen/edit/:id',                  :to => 'specimen#edit#id'
+  match 'specimen/destroy/id',                :to => 'specimen#destroy#id'
+  match 'specimen/update/id',                 :to => 'specimen#update#id'
+  match 'specimen/create',                    :to => 'specimen#create'
+
+
+  match 'spectral_feature/edit_table_ax',          :to => 'spectral_feature#edit_table_ax'
+  match 'spectral_feature/list_spect_feat',        :to => 'spectral_feature#list_spect_feat'
+  match 'spectral_feature/list_calib_info',        :to => 'spectral_feature#list_calib_info'
+  match 'spectral_feature/new_calib_info',         :to => 'spectral_feature#new_calib_info'
+  match 'spectral_feature/show_calib_info/:id',    :to => 'spectral_feature#show_calib_info#id'
+  match 'spectral_feature/edit_calib_info/:id',    :to => 'spectral_feature#edit_calib_info#id'
+
+  # match 'spectral_feature/edit_calib_info/on_field_change/:id', :to => 'spectral_feature#edit_calib_info#on_field_change#id'
+
+  match 'spectral_feature/update_calib_info/:id',  :to => 'spectral_feature#update_calib_info#id'
+  match 'spectral_feature/destroy_calib_info/:id', :to => 'spectral_feature#destroy_calib_info#id'
+  match 'spectral_feature/new_spect_feat',         :to => 'spectral_feature#new_spect_feat'
+  match 'spectral_feature/show_spect_feat',        :to => 'spectral_feature#show_spect_feat'
+  
+  match  'spectral_feature/edit_spect_feat/:id',    
+  :to => 'spectral_feature#edit_spect_feat#id'
+  
+  match  'spectral_feature/edit_spect_feat/on_field_change/:id',    
+  :to => 'spectral_feature#on_field_change#id'
+  
+  match 'spectral_feature/destroy_spect_feat/:id', :to => 'spectral_feature#destroy_spect_feat#id'
+  
+  match 'spectral_feature/update_spect_feat/:id',  :to => 'spectral_feature#update_spect_feat#id'
+  match 'spectral_feature/create_spect_feat',      :to => 'spectral_feature#create_spect_feat'
+  match 'spectral_feature/create_calib_info',      :to => 'spectral_feature#create_calib_info'
+
+  
+  match 'spectral_feat_tbl_unit/edit/:id',        :to => 'spectral_feat_tbl_unit#edit#id'
+  match 'spectral_feat_tbl_unit/destroy/:id',     :to => 'spectral_feat_tbl_unit#destroy#id'
+  match 'spectral_feat_tbl_unit/update/:id',      :to => 'spectral_feat_tbl_unit#update#id'
+  match 'spectral_feat_tbl_unit/new',             :to => 'spectral_feat_tbl_unit#new'
+  match 'spectral_feat_tbl_unit/create',          :to => 'spectral_feat_tbl_unit#create'
+
+  match 'submission/show_my',               :to => 'submission#show_my'
+  match 'submission/list_submiss_dump',     :to => 'submission#list_submiss_dump'
+  match 'submission/show/id',               :to => 'submission#show#id'
+  match 'submission/destroy/id',            :to => 'submission#destroy#id'
+  match 'submission/edit/id',               :to => 'submission#edit#id'
+  match 'submission/edit/on_field_change/:id',  :to => 'submission#on_field_change#id'
+  match 'submission/list_users/id',         :to => 'submission#list_users#id'
+  match 'submission/do_submiss_summ',       :to => 'submission#do_submiss_summ'
+  match 'submission/request_submit_to_sss', :to => 'submission#request_submit_to_sss'
+  match 'submission/save_after_edit',       :to => 'submission#save_after_edit'
+  match 'submission/list_all_users/:id',    :to => 'submission#list_all_users#:id'
+  match 'submission/select_user/:id',       :to => 'submission#select_user#:id'
+ 
+  match 'submission_reference/list',        :to => 'submission_reference#list'
+  match 'submission_reference/new',         :to => 'submission_reference#new'
+  match 'submission_reference/create',      :to => 'submission_reference#create'
+  match 'submission_reference/edit/:id',    :to => 'submission_reference#edit#id'
+  match 'submission_reference/edit/on_field_change/:id',    :to => 'submission_reference#on_field_change#id'
+  match 'submission_reference/destroy/:id', :to => 'submission_reference#destroy#id'
+  match 'submission_reference/update/:id',  :to => 'submission_reference#update#id'
+  match 'submission_reference/show/:id',    :to => 'submission_reference#show#id'
+  match 'submission_reference/save/:id',    :to => 'submission_reference#save#id'
+  match 'submission_reference/on_field_change',    :to => 'submission_reference#on_field_change'
+
+  match 'user/edit',                        :to => 'user#edit'  # can be made Restful ???JL
+  match 'user/show/:id',                    :to => 'user#show#id'
+  match 'user/remove_user_from_submission/:id', :to => 'user#remove_user_from_submission#:id'
+
+  match  'spectrum/list',                
+  :to => 'spectrum#list'
+
+  match  'spectrum/show/:id', 
+  :to => 'spectrum#show#:id'
+
+  match  'spectrum/update/:id', 
+  :to => 'spectrum#update#:id'
+
+  match  'spectrum/edit/:id', 
+  :to => 'spectrum#edit#:id'
+
+  match  'spectrum/destroy/:id', 
+  :to => 'spectrum#destroy#:id'
+
+  match  'spectrum/new', 
+  :to => 'spectrum#new'
+
+  match  'spectrum/show_upload_tab', 
+  :to => 'spectrum#show_upload_tab'
+
+  match  'spectrum/show_paramset_tab', 
+  :to => 'spectrum#show_paramset_tab'
+
+  match  'spectrum/edit/on_field_change/:id',
+  :to => 'spectrum#on_field_change#:id'
+
+  match  'spectrum/save_data_file',
+  :to => 'spectrum#save_data_file'
+
+  match  'spectrum/select_paramset',
+  :to => 'spectrum#select_paramset'
+
+ 
+
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
+
+  # Sample of regular route:
+  #   match 'products/:id' => 'catalog#view'
+  # Keep in mind you can assign values other than :controller and :action
+
+  # Sample of named route:
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  # This route can be invoked with purchase_url(:id => product.id)
+
+  # Sample resource route (maps HTTP verbs to controller actions automatically):
+  #   resources :products
+
+  # Sample resource route with options:
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
+
+  # Sample resource route with sub-resources:
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
+  # Sample resource route with more complex sub-resources
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
+  #   end
+
+  # Sample resource route within a namespace:
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
+  #   end
+
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => 'welcome#index'
+
+  # See how all your routes lay out with "rake routes"
+
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
+end

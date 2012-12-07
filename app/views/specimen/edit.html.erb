@@ -1,0 +1,16 @@
+<h1>Section B - <%= @edit_new_flag %> Specimen</h1>
+
+<% if @edit_new_flag.downcase == 'editing' %>
+<%   @TargUrl = {:action => 'update', :id => @specimen} %>
+<% else %>
+<%   @TargUrl = {:action => 'create'} %>
+<% end  %>
+
+<%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+
+<% if @edit_new_flag.downcase == 'editing'  %>
+<%= link_to 'Show', :action => 'show', :id => @specimen %> |
+<% end  %>
+
+<%= link_to 'Back', :action => 'list' %>
+<p></p>

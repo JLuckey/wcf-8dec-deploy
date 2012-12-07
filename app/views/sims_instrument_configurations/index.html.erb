@@ -1,0 +1,33 @@
+<h1>Listing sims_instrument_configurations</h1>
+
+<table>
+  <tr>
+    <th>Submission</th>
+    <th>Seq num</th>
+    <th>Analyzer type</th>
+    <th>Spectrometer manufacturer</th>
+    <th>Manufacturer model number</th>
+    <th>Experiment type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sims_instrument_configurations.each do |sims_instrument_configuration| %>
+  <tr>
+    <td><%= sims_instrument_configuration.submission_id %></td>
+    <td><%= sims_instrument_configuration.seq_num %></td>
+    <td><%= sims_instrument_configuration.analyzer_type %></td>
+    <td><%= sims_instrument_configuration.spectrometer_manufacturer %></td>
+    <td><%= sims_instrument_configuration.manufacturer_model_number %></td>
+    <td><%= sims_instrument_configuration.experiment_type %></td>
+    <td><%= link_to 'Show', sims_instrument_configuration %></td>
+    <td><%= link_to 'Edit', edit_sims_instrument_configuration_path(sims_instrument_configuration) %></td>
+    <td><%= link_to 'Destroy', sims_instrument_configuration, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sims instrument configuration', new_sims_instrument_configuration_path %>

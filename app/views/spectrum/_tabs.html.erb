@@ -1,0 +1,8 @@
+<ul id="tab_list">
+<li><%= link_to('Edit Spectrum',    {:controller => 'spectrum', :action => 'edit', :id => session[:spectrum_id]}, {:id => @current_page_flag[0]} ) %> </li>
+<% if true %>
+  <li><%= link_to('Data File Upload', {:controller => 'spectrum', :action => 'show_upload_tab'},                    {:id => @current_page_flag[1], :onclick => 'document.forms[0].submit()'} ) %> </li>
+  <li><%= link_to( 'Param Set Lookup', {:controller => 'spectrum', :action => 'show_paramset_tab'},                  {:id => @current_page_flag[2], :onclick => 'document.forms[0].submit()'} ) %> </li>
+<% end %>
+</ul>
+

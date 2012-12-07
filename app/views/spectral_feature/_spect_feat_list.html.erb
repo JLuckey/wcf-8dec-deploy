@@ -1,0 +1,31 @@
+
+<table border=0px, cellpadding=5px, cellspacing=2px>
+  <tr>
+    <th>SpecFeat Seq#</th>
+    <th>Spectrum Seq#</th>
+    <th>Element</th>
+    <th>Peak Transit.</th>
+    <th>Peak Energy</th>
+    <th>Peak FWHM</th>
+  </tr>
+
+
+<% for sf in @spect_feats %>
+  <tr>
+  <td align="center"><%=h sf.seqnum %></td>
+  <td align="center"><%=h sf.spect_seq %></td>
+  <td align="center"><%=h sf.element %></td>
+  <td align="center"><%=h sf.peak_transition%></td>
+  <td align="center"><%=h sf.peak_energy%></td>
+  <td align="center"><%=h sf.peak_fwhm%></td>
+
+  <td><%= link_to 'Show', :action => "show_#{@edit_action}", :id => sf.id %></td>
+  <td><%= link_to 'Edit', :action => "edit_#{@edit_action}", :id => sf.id %></td>
+  <td><%= link_to 'Delete', { :action => "destroy_#{@edit_action}", :id => sf }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>debug info</h2><br>
+<%= debug(@edit_action) %> <br>
+<%= debug(sf.id) %>

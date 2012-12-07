@@ -1,0 +1,27 @@
+
+<h1>Section A - Keywords Listing</h1>
+
+<table cellpadding=5px cellspacing=1px>
+  <tr>
+    <th>SeqNum</th>
+    <th>Keyword</th>
+  </tr>
+
+<% for keyword in @keywords %>
+  <tr>
+    <td><%=h(keyword.seqnum) %></td>
+    <td><%=h(keyword.keyword) %></td>
+    <td><%= link_to('Edit',   { :action => 'edit', :id => keyword.id }, :remote => true) %></td>   
+    <td><%= link_to('Delete', { :action => 'destroy', :id => keyword.id }, :confirm => 'Are you sure?', :method => :post )%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<div id="keyword_entry_div">
+
+</div>
+
+<br>
+<%= link_to('New keyword', 'new', :remote => true) %>

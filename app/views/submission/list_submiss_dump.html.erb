@@ -1,0 +1,19 @@
+WCF Version 12.0 <BR> <BR>
+
+<%= check_box('cb_show_deleted', 'checked', {:checked => session[:show_deleted]}) %> Show Deleted Submissions
+
+<%= observe_field( 'cb_show_deleted_checked',
+:update => 'div_submiss_table_table',
+:url    => {:action => 'refresh_admin_submiss_list', :id => '979', :field_name => 'checked' },
+:with   => 'field_value', :type => :asynchronous) %>
+
+<h1>Administrative Tasks - Listing All Submissions</h1>
+
+<div id="div_submiss_table_table">
+
+  <%= render(:partial => 'submiss_list_admin') %>
+
+</div>  <!-- div_submiss_table_table -->
+
+<br>
+

@@ -1,0 +1,10 @@
+<h1> Minor Elements </h1>
+<div id="tab_test_div">
+  <% @current_page_flag = Array.new %>
+  <% @current_page_flag[1] = 'current' %>
+  <%= render(:partial => "tabs") %>
+</div>
+
+
+  <%= render :active_scaffold => 'minor_element' %>
+

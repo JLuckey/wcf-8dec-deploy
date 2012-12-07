@@ -1,0 +1,36 @@
+<%= error_messages_for :user %>
+
+<h2 align=center>WECF Registration<br></h2>
+<h3 align=center>Please complete the following fields to start the registration process</h3>
+
+<div id="login_div1" style="position:relative; left:43%; height:215px">
+
+<% form_for :user do |f| -%>
+<p><label for="login">First Name</label><br/>
+<%= f.text_field :first_name %></p>
+
+<p><label for="login">Last Name</label><br/>
+<%= f.text_field :last_name %></p>
+
+<p><label for="login">Institution Name</label><br/>
+<%= f.text_field :institute_name %></p>
+
+<p><label for="login">Desired Login</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">Email</label><br/>
+<%= f.text_field :email %></p>
+
+<p><label for="password">Password</label><br/>
+<%= f.password_field :password %></p>
+
+<p><%= submit_tag 'Register' %></p>
+
+</div>
+<% end -%>
+<br> <br> <br> <br><br><br><br><br><br><br>
+<div>
+  <h4 align=center>After you press the Register button you will receive an
+      email w/ further instuction as to how to complete the registration process</h4>
+</div>
+

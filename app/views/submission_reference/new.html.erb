@@ -1,0 +1,12 @@
+<h1>Section A - New Reference</h1>
+
+<% form_tag :action => 'create' do %>
+  <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%#= render :partial => 'form' %>
+  <%#= submit_tag "Create" %>
+<% end %>
+<br>
+  <%#= render :active_scaffold => 'reference_author' %>
+
+<%= link_to 'Back', :action => 'list' %>
+<p></p>

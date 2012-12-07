@@ -1,0 +1,9 @@
+<h1>Edit keyword</h1>
+
+<%= form_for(:keyword_rec, :url => 'update', :remote => true) do |f| %>
+	Seq Num: <%= f.text_field :seqnum %>  <br><br>
+	Keyword: <%= f.text_field :keyword %> <br><br>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

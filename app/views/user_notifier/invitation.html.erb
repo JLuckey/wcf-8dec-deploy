@@ -1,0 +1,21 @@
+Dear <%= @user.first_name %>
+
+You have been invited to join a WECF Submission by <%= @invitor.first_name + ' ' + @invitor.last_name %>
+
+Submission Name: <%= @submission.title %>
+Submission ID:   <%= @submission.id %>
+
+In order to work on this Submission, you must first complete the User
+registration process by following this link:
+
+--- Link to invitee registration-completion page ---
+<%= @url %>
+
+Once you have completed your User Registration you will recieve a Registraton
+Confirmation email.  Then you will be able to login to the WECF system and
+access this Submission.
+
+Sincerely,
+
+The WCF Administration Team
+

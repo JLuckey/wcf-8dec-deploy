@@ -1,0 +1,59 @@
+
+  <% if session[:arr_instr_info] %>   <!-- if submiss_nav_bar has data then show navbar  -->
+    <div id="submiss_nav_bar" >
+      <h4 id="submiss_nav_bar_title" align="center"> <%= "Submission ID: #{session[:id_and_rev]}" %> <br>
+                          <%#= "Technique: #{session[:technique]}"  %>
+                          <%= "Status: #{session[:submiss_status]}"  %> </h4>
+			<ul id="vert_nav_menu">
+        <li id="foo"><%= link_to('A - Overview', {:controller => 'submission', :action => 'show', :id => session[:submiss_id]} ) %></li>
+
+      <ul id="vert_nav_menu2">
+        <li id="foo"><%= link_to('Authors', {:controller => 'author', :action => 'list'} ) %></li>
+        <li><%= link_to('Keywords',   {:controller => 'keyword',    :action => 'list'} ) %></li>
+        <li><%= link_to('Major & Minor Elements', {:controller => 'page_test', :action => 'show_tabs'} ) %></li>
+        <li><%= link_to('References', {:controller => 'submission_reference', :action => 'list'} ) %></li>
+        <li><%= link_to('Supplemental Data Files', {:controller => 'additional_file', :action => 'list'} ) %></li>
+        <li><%= link_to('Users',      {:controller => 'submission', :action => 'list_users', :id => session[:submiss_id]} ) %></li>
+      </ul>
+
+        <li><%= link_to('B - Specimens', {:controller => 'specimen', :action => 'list'} ) %></li>
+        <li><%= link_to('C - Instruments', {:controller => 'instrument', :action => 'list'} ) %></li>
+
+      <ul id="vert_nav_menu2">
+
+      <% arr = session[:arr_instr_info] %>
+      <% 0.upto(arr.size/2 - 1) do |i| %>
+        <% j = i * 2 %>
+        <li id="inst01"><%= link_to(arr[j], {:controller => 'instrument', :action => 'edit', :id => arr[j+1]} ) %></li>
+        <li><%= link_to('D - Calibration Info', {:controller => 'spectral_feature', :action => 'list_calib_info', :id => arr[j+1]} ) %></li>
+        <li><%= link_to('E - Variable Instr. Params', {:controller => 'paramset', :action => 'list', :id => arr[j+1]} ) %></li>
+      <% end  %>
+
+      </ul>
+
+        <li><%= link_to('F - Spectra',                {:controller => 'spectrum',     :action => 'list'} ) %></li>
+<!--        <li><%= link_to('G - Experimental Variables', {:controller => 'exp_variable', :action => 'list'} ) %></li>   -->
+        <li><%= link_to('H - Analysis Methods',       {:controller => 'analysis_method', :action => 'show'} ) %></li>
+<!--        <li><%= link_to('I - Spectral Features',      {:controller => 'spectral_feature', :action => 'edit_table_ax'} ) %></li>  -->
+        <li><%= link_to('I - Spectral Features',      {:controller => 'spectral_feature', :action => 'list_spect_feat'} ) %></li>
+          <ul id="sectI_submenu">
+<!--            <li><%= link_to('Major & Minor Elements', {:controller => 'page_test', :action => 'show_tabs'} ) %></li>  -->
+          </ul>
+
+<!--       <li><%= link_to('X - TabTest',      {:controller => 'page_test', :action => 'show_tabs'} ) %></li>  -->
+      </ul>
+
+      <div id="submiss_proof_pdf_div" >
+				<br>
+				<h4 align="center"> Submission Tasks </h4>
+				<ul>
+				<li><%= link_to('Submission Proof Report', {:controller => 'submission', :action => 'do_submiss_summ'} ) %> </li>
+				<li><%= link_to('Submit to SSS', {:controller => 'submission', :action => 'request_submit_to_sss'}) %></li>
+				</ul>
+
+			</div>
+
+    </div>
+
+  <% end %>
+

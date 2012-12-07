@@ -1,0 +1,349 @@
+<%=link_to('Back to Login Page', {:controller => 'account', :action => 'login'})%>
+
+<font face="Arial">
+<h1>Help &amp General Information </h1>
+
+<a name="Top" id="Top"></a>
+<ul>
+<li><a href="#About">About <em>Surface Science Spectra</em></a></li>
+<li><a href="#SysReq">System Requirements</a></li>
+<li><a href="#What">What data to submit?</a></li>
+<li><a href="#Categories">Categories of Data Records</a></li>
+<li><a href="#SubmissionCycle">The Submission Cycle</a></li>
+<li><a href="#SubmittingADataRecord">Submitting a Data Record</a></li>
+<li><a href="#Preparing">Preparing the AES/XPS Contributors Form</a></li>
+<li><a href="#SubmissionIllustration">Submission Illustration</a></li>
+<li><a href="#CalibrationSpectra">Calibration Spectra</a></li>
+<li><a href="#PeakLabeling">Peak Labeling</a></li>
+<li><a href="#CompletingEntries">Completing Entries</a></li>
+<li><a href="#MoreInfo">More Information and Help</a></li>
+<li><%= link_to("Manufacturer's Data for PHI XPS Instruments", :controller => 'submission', :action => 'phi_xps_instruments')%></li>
+<li><a href="http://sss.avs.org/sss-vamas.html">VAMAS to SSS Data Format</a></li>
+
+</ul>
+<br>
+
+<p><strong><a name="About">About Surface Science Spectra</a></strong><br>
+Surface Science Spectra (SSS) is a journal and electronic database
+devoted to the distribution of surface spectroscopy
+data files. Spectra of any material of scientific and technological
+interest will be considered for inclusion. This form is
+for use primarily with XPS, UPS, and AES spectra. Closely
+related techniques, such as BIS, XAS, and XPD, have also
+utilized this form. SIMS measurements require a different
+contributor's form, which may be obtained from the <a href="http://sss.avs.org">SSS
+Web site</a>, or by
+contacting the SSS Editorial Office at <a href="mailto:sss@jvst.org">sss@jvst.org</a>.
+Additional techniques will be added later. <a href="#Top">Return to top.</a>
+
+<p><a name="What" id="What"><strong>What Data to Submit?</strong></a><br>
+
+The SSS database is designed to serve a wide range of
+needs. The objectives of the database include, but are not
+limited to, the following:</p>
+<ol start="1" compact>
+<li>It provides examples of spectra from a wide range of
+materials that enable researchers and analysts to estimate,
+or predict, the type and quality of information
+that may be available from surface analytical techniques
+for problems they are encountering.</li>
+<li>It provides a spectral library to allow comparisons of
+data from one laboratory and instrument to what others
+have found on different instruments or under different
+conditions.</li>
+<li>
+It provides a spectral library that assists users of surface
+science data in extracting the most information
+possible by providing spectra from known materials
+and systems for comparison.
+</li>
+<li>
+It provides a forum to present complete data sets for
+information published elsewhere where full presentation
+of the data was not possible due to space limitations.
+To best accomplish the first three objectives, the database
+needs as many data sets as practical from as wide a
+range of materials as possible. To serve the last objective,
+submitted data need to satisfy the first three objectives as
+well as allow a full examination of the data supporting the
+ideas presented in the original publication.
+</li>
+</ol>
+
+
+<p>It should be noted that even though spectra from a
+particular material have already appeared in SSS, we encourage
+the submission of data on the same or similar
+materials obtained from other instruments in order to meet
+the stated objectives. Remember-not everyone has the
+latest or highest performance machine. A tremendous
+amount of good work is being done on older machines
+and should be featured in the <em>SSS</em> database. <a href="#Top">Return to top.</a></p>
+
+<p><a name="Categories" id="Categories"><strong>Categories of Data Records</strong></a><br>
+Three categories of data records are published in <em>SSS</em>:</p>
+
+<ul><li>
+<strong>Technical</strong>: Data records characterizing complex surfaces
+that are of technological interest.
+</li>
+<li>
+<strong>Comparison</strong>: Data records characterizing chemically
+well-defined surfaces that can be used in identifying
+surface chemistry.
+</li>
+<li>
+<strong>Reference</strong>: Data records that can be used in calibrating
+energy scales and identifying chemical
+states of compounds of surfaces.
+</li></ul><a href="#Top">Return to top.</a>
+
+<p><a name="SubmissionCycle" id="SubmissionCycle"><strong>The Submission Cycle</strong></a><br>
+Submissions to SSS are distributed to recognized experts
+for peer review before acceptance into the database. Submissions
+determined to be of sufficient quality or interest
+to the applied surface science community will be accepted
+for publication, entered into the AVS database, and prepared
+for publication in <em>SSS</em>. <em>SSS</em> is an <em>E-first</em> journal: submissions are placed at <a href="http://scitation.aip.org/ssso">SSS Online</a> as soon as they are accepted and prepared
+for publication, with a print version produced for each complete volume.
+<a href="#Top">Return to top.</a></p>
+
+<p><strong><a name="SubmittingADataRecord" id="Submitting">Submitting a Data Record</a></strong><br>
+To submit a data record to SSS, you must:</p>
+
+<ol><li>
+Complete all appropriate sections of this contributor's form.
+Provide digital data files (ASCII, Excel, or other format) of all spectra, including calibration spectra. WCF has screens for uploading these files. If you want to publish curve-fit plots, please also provide digital curves representing all components of the fit, including any background subtraction.
+</li>
+<li>
+Provide image files for all spectra to be published, showing peak labeling and any other details (<em>e.g.</em> curve fit overlays) exactly as you want them published. Again, WCF has screens for uploading these files.
+</li>
+<li>
+When your submission is complete, notify <a href="mailto:webmaster@publishinsss.com">webmaster@publishinsss.com</a> so the SSS Editorial Office can begin processing.
+</li></ol>
+
+<p>At least one survey spectrum must be included with
+each data record to characterize the elements present. Survey
+scans cannot be obtained with certain experimental
+techniques (e.g. UPS); in those cases the criteria for determining
+surface quality must be described. Authors may
+submit, for inclusion in the electronic database, the full set
+of spectra necessary to completely characterize the surface,
+even if the number of spectra is too large to print in SSS.
+Fields are provided in the AES/XPS Contributors Form to
+designate which spectra are only for entry into the electronic
+database. For example, calibration spectra will be
+entered into the electronic archives as part of the data record
+but will not necessarily be printed in SSS. <a href="#Top">Return to top.</a></p>
+
+<p><a name="Preparing" id="Preparing"><strong>Preparing the AES/XPS Web-based Contributors Form</strong></a><br>
+WCF provides a simple tree view to help navigate its several sections. Below is the navigation tree as it appears for a submission with some sections already completed.</p>
+
+<img src="/images/WCF_tree_completed_sub.gif" alt="WCF tree view for a submission with one instrument." width="346" height="445" border="0">
+
+
+<ul compact><li>
+<strong>Section A</strong>: Authors, Institutions, Overview.<br>
+  Includes Abstract and Introduction, Authors, Keywords, References, Acknowledgments. Pertains to entire submission. Also includes a screen where you can upload supplemental files of any kind, and manage which other users can view and/or edit this submission.
+</li>
+<li>
+<strong>Section B</strong>: Specimen Description.<br>
+Complete a separate Section B record for each Specimen in your submission. While not mandatory, you may also enter a Section B record for each of your calibration specimens.
+</li>
+<li>
+<strong>Section C</strong>: Instrument Description.<br>
+Most <em>SSS</em> submissions use only a single Instrument. However, if your submission used more than one Instrument, or two configurations for the same Instrument (<em>e.g.</em> for both XPS and Auger measurements) you should provide a Section C record for each.
+</li>
+<ul><li>
+<strong>Section D</strong>: Calibration Information.<br>
+Enter a table of calibration measurements for each Instrument.
+</li>
+<li>
+<strong>Section E</strong>: Variable Instrument Parameters.<br>
+Provide on Section E for each set of Instrument Parameters used when taking measurements. Typical variable parameters are analyzer resolution and constants, source beam size, source raster size, source energy and strength.
+</li></ul>
+<li>
+<strong>Section F</strong>: Spectrum Parameters.<br>
+Complete a Section F record for each submitted spectrum. WCF Section F screens allow you to upload digital data files and plot image files.
+</li>
+<li>
+<strong>Section H</strong>: Analysis Methods.<br>
+Discussion of data analysis methods, including recommended energy scale shifts for each plotted spectrum.
+</li>
+<li>
+<strong>Section I</strong>: Spectral Features Descriptions.<br>
+A table listing the transitions identified in submitted spectra, with columns for Peak Energy, Peak Width, Peak Amplitude, Sensitivity Factor, Concentration, Peak Assignment and Comments.
+</li></ul>
+<p>(Section G, omitted above, is not in use at this time.) <a href="#Top">Return to top.</a></p></p>
+
+
+<p>Test cases show that the typical amount of time
+needed to complete a WCF submission is 2-4 hours&ndash;a relatively
+short period in which to produce a refereed, archival publication.
+Future submissions should take even less time because WCF will support copying
+sections from prior submissions to new ones. For example, a number of data items, such as those in
+Section C that describe the basic characteristics of the spectrometer,
+will tend to be the same for all submissions of
+data from a given instrument. Also, the Variable Instrument
+Parameters section constitutes a profile of how an instrument is set up to take a series of
+spectra. For most laboratories, only a few entries in this
+section will change from one data record to another.
+It might also be noted that the Contributors Form is a useful way to
+document data records.</p>
+
+<p>One copy of the Spectrum Parameters section is required
+for each spectrum, including calibration spectra, in
+the data record. Different copies of the Variable Instrument
+Parameters section are required, depending on how many
+instrument configurations were used to take the spectra. As
+an example, in a typical XPS submission, there would be
+one Variable Instrument Parameters section (VIPS) for the
+survey spectrum, one VIPS for the high-resolution spectra,
+and one VIPS for the valence band spectra. <a href="#Top">Return to top.</a></p>
+
+<p><a name="SubmissionIllustration" id="SubmissionIllustration"><strong>Submission Illustration</strong></a>
+For example, for a submission with six submitted spectra,
+two sample treatments, and two instrument configurations,
+you would complete sections as follows:.</p>
+
+<ul><li>
+Section A (Overview)
+</li>
+<li>
+Section B (Specimens), two records: one for each sample treatment
+</li>
+<li>
+Section C (Instruments), one record
+</li>
+<li>
+Section D (Calibration)
+</li>
+<li>
+Section E (Variable Instrument Parameters): two records, one for each instrument configuration
+</li>
+<li>
+Section F (Spectra): Six records, one for each submitted spectrum. Each Section F record should included an uploaded digital data file and an uploaded image file showing how you wish the spectrum plotted for publication.
+</li>
+<li>
+Section I (Table of Spectral Features)
+</li>
+</ul>
+<p><a href="#Top">Return to top.</a></p>
+
+<p><a name="CalibrationSpectra" id="CalibrationSpectra"><strong>Calibration Spectra</strong></a><br>
+Because the condition of the instrument used to take the
+data submitted to SSS directly affects the data, we require
+that calibration spectra be submitted with all <q>comparison</q>
+and <q>reference</q> data sets and strongly recommend
+submission of calibration spectra for <q>technical</q> data sets.
+With access to the actual calibration data, SSS users can assess
+the condition of the instrument used to collect the
+data. Today, only the peak energies that appear in the calibration
+summary table are used most often from calibration
+data details. In the future, as more understanding of
+the techniques is available, the intensity data will be used
+to allow better quantification. Having the calibration data,
+such as a survey scan of Cu, Ag, or Au, as part of the SSS
+data record will facilitate this quantification in the future.
+One copy of Section B, Specimen Description, must be
+completed for the calibration sample, and one copy of Section
+F, Spectrum Parameters, should be completed for each
+calibration spectrum included in the submission. <a href="#Top">Return to top.</a></p>
+
+<p><strong><a name="PeakLabeling" id="PeakLabeling">Peak Labeling</a></strong><br>
+For XPS spectra, label all transitions on the hard copy spectra.
+Identify the element and transition-optionally including
+the spin-orbit coupling if the spin-orbit coupling peaks
+are resolved. Assignment of spectral features due to different
+oxidation states, shake-up, shake-off, or other satellites
+should be reserved for the Table of Spectral Features. The
+valence band and Auger transitions may be identified as a
+region unless the author wishes to identify specific peaks.
+For AES spectra, Auger transitions may be identified individually
+or as a region. Peak energies in the N (E) or derivative
+spectra should be identified in the Table of Spectral
+Features. <a href="#Top">Return to top.</a></p>
+
+<p><strong><a name="CompletingEntries" id="CompletingEntries">Completing Entries</a></strong><br>
+The information you provide should be complete enough
+so that the experiment can be reconstructed by SSS readers.</p>
+
+Each data field is marked with a Completeness Level Code with values 1 thru 5 to assist you in
+assessing the consequences of omitting an entry. Codes do not appear
+on the current WCF screens, but may be viewed on the <a href="/pdf/SSS XPS Cform 2-2007.pdf">PDF version of
+the Contributor's Form</a>. (Completeness Codes appear in the PDF as a small circle containing a number to the left of
+every field number)
+
+<ul>
+<li>
+Level 1: Mandatory entry&ndash;An entry must be made,
+even if the only valid entry is N/A (not applicable). The
+absence of an entry is not equivalent to entering zero,
+none, or N/A.
+</li>
+<li>
+Level 2: Mandatory entry&ndash;An entry must be made unless
+there are special considerations. Failure to make an
+entry would be acceptable only if the data record were
+of such unusual technical importance that it should be
+archived, even in the absence of some data entries at
+this level.
+</li>
+<li>
+Level 3: Recommended entry&ndash;An entry, though not
+required, is important to readers who wish to have a
+complete interpretation of the data record.
+</li>
+<li>
+Level 4: Recommended entry&ndash;An entry allows the
+most critical uses of the data record.
+</li>
+<li>
+Level 5: Optional entry&ndash;An entry should be made at
+the author's discretion (e g., see Field 11, Section A).
+
+</li></ul>
+<p><a href="#Top">Return to top.</a></p>
+
+<br>
+<p><strong><a name="SysReq">System Requirements</a></strong><br>
+The WCF requires the following browser settings & addins to function properly:
+<ul>
+	<li>Javascript Enabled</li>
+	<li>Cookies Enabled</li>
+	<li>Acrobat PDF reader</li>
+</ul>
+
+And it has been tested with the following browsers:
+<ul>
+	<li>Mozilla Firefox</li>
+	<li>Microsoft Internet Explorer 6</li>
+	<li>Microsoft Internet Explorer 7</li>
+	<li>Safari</li>
+</ul>
+The recommended browser is Mozilla Firefox.
+
+</p>
+<p><a href="#Top">Return to top.</a></p>
+<br>
+
+<a name="MoreInfo" id="MoreInfo"></a>If you cannot determine how to
+complete an entry, or have other questions about completing WCF, please contact
+the <a href="mailto:drubin@earthlink.net">SSS Data Center</a>.
+
+For questions about using WCF, or to report errors, please write
+<a href="mailto:webmaster@publishinsss.com">webmaster@publishinsss.com</a>.
+
+More information is available at the journal's web site, <a href="http://sss.avs.org">http://sss.avs.org</a>, and at
+<a href="http://scitation.aip.org/ssso"><em>SSS</em> Online</a>.
+
+
+Thank you for contributing to <em>Surface Science Spectra</em>, <q>an international
+journal devoted to archiving surface science spectra
+of technological and scientific interest.</q> <a href="#Top">Return to top.</a>
+
+
+</font>
+<br><br><br>
+
+

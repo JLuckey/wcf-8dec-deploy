@@ -1,0 +1,65 @@
+    <div class="field_group_div">
+      <div class="data_field_div">
+      <% if field_group.display_widget.include?('subhdg') %>
+           <br><br>
+           <h3><%= raw(field_group.field_label) %> </h3></p>
+      <% else %>
+        <p><label for="<%=field_group.model_name.underscore + '_' + field_group.field_name%>"><%= raw( field_group.contrib_form_id + '  ' + field_group.field_label ) %></label><br>
+
+        <% if field_group.display_widget == 'text_field' %>
+          <%= text_field( field_group.model_name.underscore, 
+                          field_group.field_name, 
+                          {:onblur => "$.post( 'on_field_change/#{field_group.record_id}', { 'field_name':'#{field_group.field_name}', 'field_value':this.value } );",
+                           :size => field_group.display_widget_width} ) %> </p>
+          <%#= text_field( field_group.model_name.underscore, field_group.field_name, :size => field_group.display_widget_width )%> </p>
+
+        <% elsif field_group.display_widget == 'text_field_ro' %>
+          <%= text_field( field_group.model_name.underscore, 
+                          field_group.field_name, 
+                          {:onchange => "$.post( 'on_field_change/#{field_group.record_id}', { 'field_name':'#{field_group.field_name}', 'field_value':this.value } );", 
+                           :size => field_group.display_widget_width, 
+                          "readonly" => true} )
+          %> 
+        </p>
+
+        <% elsif field_group.display_widget == 'text_area' %>
+          <%= text_area( field_group.model_name.underscore, field_group.field_name, 
+                         {:onblur => "$.post( 'on_field_change/#{field_group.record_id}', { 'field_name':'#{field_group.field_name}', 'field_value':this.value } );", 
+                          :cols => field_group.display_widget_width, 
+                          :rows => field_group.display_widget_height} )%> </p>
+          <%#= text_area( field_group.model_name.underscore, field_group.field_name, {:cols => field_group.display_widget_width, :rows => field_group.display_widget_height} )%> </p>
+
+        <% elsif field_group.display_widget == 'select' %>
+          <%= select( field_group.model_name.underscore, 
+                      field_group.field_name, 
+                      instance_variable_get('@' + field_group.field_name + '_choices'), 
+                      {}, 
+                      {:onchange => "$.post( 'on_field_change/#{field_group.record_id}', { 'field_name':'#{field_group.field_name}', 'field_value':this.value } );" } ) 
+          %> 
+        </p>
+
+        <% else %>
+          <p><h3> Unable to decode HTML widget type: <%= field_group.display_widget %> </h3></p>
+
+        <% end %>
+      <% end %>
+
+      </div>
+
+      <% if field_group.display_widget == 'subhdg_help_text'  %>
+        <div class="help_text_subhdg">
+      <% else %>
+        <div class="help_text_div">
+      <% end %>
+
+         <p> </p> <br>
+         <%= raw( field_group.help_text ) %>
+         <br><br>
+      </div>
+
+
+      <div class="field_group_footer_div">
+      </div>
+
+    </div>  <!-- div_field_group -->
+

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Submission:</b>
+  <%= @sims_instrument_configuration.submission_id %>
+</p>
+
+<p>
+  <b>Seq num:</b>
+  <%= @sims_instrument_configuration.seq_num %>
+</p>
+
+<p>
+  <b>Analyzer type:</b>
+  <%= @sims_instrument_configuration.analyzer_type %>
+</p>
+
+<p>
+  <b>Spectrometer manufacturer:</b>
+  <%= @sims_instrument_configuration.spectrometer_manufacturer %>
+</p>
+
+<p>
+  <b>Manufacturer model number:</b>
+  <%= @sims_instrument_configuration.manufacturer_model_number %>
+</p>
+
+<p>
+  <b>Experiment type:</b>
+  <%= @sims_instrument_configuration.experiment_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_sims_instrument_configuration_path(@sims_instrument_configuration) %> |
+<%= link_to 'Back', sims_instrument_configurations_path %>

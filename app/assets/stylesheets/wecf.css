@@ -1,0 +1,279 @@
+/* Global styles */
+
+/* START:notice */
+#notice {
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
+}
+/* END:notice */
+
+
+#foo {
+  color: red;
+
+}
+
+#submiss_proof_pdf_div {
+}
+
+
+
+#vert_nav_menu2, #sectI_submenu {            /* to decrease indent */
+  position: relative;
+  left: -15px;
+}
+
+
+#inst01 {
+  position: relative;
+  left: -13px;
+}
+
+#ion_sources {
+  position: relative;
+  left: -5px;
+}
+
+
+#product-list .list-actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#product-list .list-line-even {
+  background:   #e0f8f8;
+}
+
+#product-list .list-line-odd {
+  background:   #f8b0f8;
+}
+
+
+/* Styles for main page */
+
+#banner {
+  background: #9c9;
+  padding-top: 5px;
+  padding-bottom: 5px;
+/*  border-bottom: 2px solid; */
+  font: 40px/40px "Arial", serif;
+/*  font: small-caps 40px/40px "Arial", serif;  */
+  color: #282;
+  text-align: center;
+}
+
+#sub_banner {
+  background: #9c9;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid;
+  font: 25px/25px "Arial", serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner img {
+  float: left;
+  padding-left: 5px;
+/*  clear: right;*/
+}
+
+#site_nav_menu_div{
+  height: 8%;
+  background: #141;
+  text-align: center;
+  padding: 8px;
+  padding-top: 8px;
+}
+
+#site_nav_menu {
+  display: inline;
+  color: #282;
+  padding: 5px;
+  position: relative;
+  top: 0px;
+  font-family: "Arial";
+  font-size: small;
+}
+
+#site_nav_menu li{
+  display: inline;
+  padding: 7px;
+}
+
+#site_nav_menu a{
+  display: inline;
+  padding: 7px;
+  color: #D4E7B2;
+}
+
+#columns {
+  background: #141;
+}
+
+#div_spacer_1{
+/*  background: lime;*/
+  height: 15px;
+  clear: both;
+}
+
+#submiss_nav_bar {
+  float: left;
+  border: 1px solid green;
+  width: 24%;
+}
+
+#submiss_nav_bar_title {
+  padding-top: 10px;
+}
+
+#main {
+  float:       right;  	/* left; */
+  width:       74%;
+  background:  white;
+}
+
+#main_no_nav_bar {
+  position:    relative;
+  top:         22px;
+  left:        0px;
+  float:       left;
+  width:       95%;
+  margin-left: 1px;
+  padding-top: 1ex;
+  padding-left:1em;
+  background:  white;
+}
+
+
+#side a {
+  color: #bfb;
+  font-size: small;
+}
+
+h1 {
+  font:  150% sans-serif;
+  border-bottom: 3px dotted #9c9;       /* #77d; JL 3Nov06 */
+}
+
+h3 {
+  font:  120% sans-serif;
+}
+
+
+#horz_nav_menu li{
+  display: inline;
+  padding: 5px;
+}
+
+#horz_nav_menu {
+  background: #141;
+  text-align: center;
+}
+
+#navlist li {
+  display: inline;
+  padding: 5px;
+}
+
+
+#tab_list {
+  padding: 5px 0;
+  margin-left: 0;
+  border-bottom: 1px solid #778;
+  font: bold 12px Arial;
+}
+
+#tab_list li {
+  list-style: none;
+  margin: 0;
+  display: inline;
+}
+
+#tab_list li a {
+  padding: 5px 0.5em;
+  margin-left: 6px;
+  border: 1px solid #778;
+  border-bottom: none;
+  background: #DDE;
+}
+
+#tab_list li a:link { color: #448;}
+
+#tab_list li a:visited { color: #667;}
+
+#tab_list li a:hover {
+  color: #000;
+  background: #AAE;
+  border-color: #227;
+}
+
+#tab_list li #current {
+        background: white;
+        border-bottom: 1px solid white;
+}
+
+
+#ref_author_col_headings {
+  white-space: pre;
+}
+
+
+#div_helpTest {
+  width:   200px;
+  border:  1px solid #778;
+  padding: 4px;
+  float:   right;
+/*  display: inline; */
+}
+
+#ptest{
+  float:  left;
+}
+
+
+/* Styles for "editing" pages w/ help text */
+.field_group_div {
+/*  border: 1px solid blue;*/
+  min-width: 730px;
+}
+
+.data_field_div {
+  float: left;
+/*  width: 40% ;*/
+/*  border: 2px solid red;*/
+}
+
+.help_text_div{
+  float: right;
+  width: 40%;
+  font-family: arial;
+  font-style: italic;
+  color: #005B1E;
+/*  border: 1px solid green;*/
+}
+
+.help_text_subhdg{
+  float: left;
+  font-family: arial;
+  font-style: italic;
+  color: #005B1E;
+}
+
+
+.field_group_footer_div{
+  clear: both;
+/*  border: 2px solid yellow;*/
+}
+
+#tbl_quant_fields_spect_feat{
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px;
+/*  cellpadding: =5px, cellspacing=2px */
+
+}

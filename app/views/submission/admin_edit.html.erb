@@ -1,0 +1,28 @@
+<h1><%= "Submission #{@submission.id} - Editing Admin-only Fields" %> </h1>
+
+<% form_tag :action => 'update_admin_edit', :id => @submission do %>
+  <%= render :partial => 'form_admin_edit' %>
+	<br>
+  <%= submit_tag 'Save' %>
+<% end %>
+
+<br>
+<br>
+<h2> Administrative Tools </h2>
+<%= button_to("Create Revision", :controller => 'subm_cloning', :action => 'clone_subm_driver')%>
+<br>
+<br>
+<%= button_to("Delete Submission", {:controller => 'submission', :action => 'flag_for_deletion'}, :confirm => "Flag submission #{@submission.id} for deletion? ")%>
+<p>
+   The Delete Submission button flags the current submission for deletion by entering a date  <br>
+   into the delete_flag field (submissions table) and by prepending "DELETED - [today's date]" <br>
+	 to the Submission Title
+</p>
+<br>
+<br>
+<% if @edit_new_flag == 'Editing'                          %>
+<%=  link_to 'Show', :action => 'show', :id => @submission %>
+<% end                                                     %>
+<p> </p>
+
+

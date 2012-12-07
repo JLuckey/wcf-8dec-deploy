@@ -1,0 +1,21 @@
+<h1>Section A - <%= @edit_new_flag %> Submission</h1>
+
+<%# form_tag :action => 'update', :id => @submission do %>
+  <%#= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%#= render :partial => 'form' %>
+  <%#= submit_tag 'Save' %>
+<%# end %>
+
+
+<%= form_for(@submission, :url => {:action => 'save_after_edit'} ) do |f| %>
+  <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%= f.submit %>		
+<% end %>
+
+
+<br>
+<% if @edit_new_flag == 'Editing'                          %>
+<%=  link_to 'Show', :action => 'show', :id => @submission %>
+<% end                                                     %>
+<p> </p>
+

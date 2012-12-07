@@ -1,0 +1,31 @@
+    <div class="field_group_div">
+      <div class="data_field_div">
+
+        <% if submiss_summary.record_type == '' %>
+          <%= "<strong>#{submiss_summary.field_label}</strong> #{submiss_summary.field_data}" %>
+
+        <% elsif submiss_summary.record_type == 'table_break'%>
+          <%#= debug(submiss_summary.field_label)%>
+          <%= "<h1> #{submiss_summary.field_label} </h1>" %>
+
+        <% elsif submiss_summary.record_type == 'record_break'%>
+          <%#= debug(submiss_summary.field_label)%>
+          <%= "<h3> #{submiss_summary.field_label} </h3>" %>
+
+        <% else %>
+          <p><h3> Unable to decode record type: <%= submiss_summary.record_type %> </h3></p>
+
+        <% end %>
+
+      </div>
+
+      <div class="help_text_div">
+         <p> </p> <br>
+
+      </div>
+
+      <div class="field_group_footer_div">
+      </div>
+
+    </div>  <!-- div_submiss_summary -->
+

@@ -1,0 +1,40 @@
+
+<%= form_for(:user, :url => '') do |f| %> 
+
+<h2 align=center>Welcome to the Web-based Contributor's Form (WCF)<br> <br>Please Login</h2>
+
+<div id="login_div1" style="position:relative; left:40%; height:170px">
+
+<p>
+<%= f.label "login" %> <br/>
+<%= f.text_field 'login' %>
+</p>
+
+<p>
+<%= f.label "password" %><br/>
+<%= f.password_field 'password' %>
+</p>
+
+<!-- Uncomment this if you want this functionality
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me' %></p>
+-->
+
+<p>
+<%= f.submit 'Log in' %>
+</p>
+</div>
+
+
+<!-- 
+<p align=center> <%#= link_to('Forgot your password?', {:controller => 'account', :action => 'forgot_password'})%> </p>
+-->
+
+<div >
+<!-- <h4 align=center>If you don't have a login, please visit the <a href="http://localhost:3000/account/signup">Registration Page</a></h4> -->
+<h4 align=center>If you don't have a login, please visit the <%= link_to('Registration Page', {:controller => 'account', :action => 'signup'} ) %></h4>
+
+</div>
+
+<div> <%= debug(params) if Rails.env.development? %> </div>
+<% end %>

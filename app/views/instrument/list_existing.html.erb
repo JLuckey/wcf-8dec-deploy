@@ -1,0 +1,30 @@
+<h1>Section C - Instrument Copy Utility </h1>
+
+
+<h4>This table lists instruments from all of your previous Submissions.
+    Click the Copy link to copy the desired instrument into your current Submission.</h4>
+
+<table cellpadding=5px cellspacing=5px>
+  <tr>
+    <th> Manufacturer </th>
+    <th> Model </th>
+    <th> Submission Title </th>
+    <th> Submission Date </th>
+  </tr>
+
+<% for instrument in @instrument_list %>
+  <tr>
+    <td><%=h instrument.send('manufacturer') %></td>
+    <td><%=h instrument.send('model') %></td>
+    <td><%=h instrument.send('title') %></td>
+    <td><%= instrument.created_on.to_date.strftime("%Y-%m-%d") %></td>
+    <td><%= link_to 'Copy', :action => 'clone_instrument', :id => instrument %></td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to 'List Instrument', :action => 'list' %>
+
+<p> </p>

@@ -1,0 +1,23 @@
+
+<table id="tbl_quant_fields_spect_feat", cellpadding="5px", cellspacing="6px">
+	<tr> <th colspan="6"> <b>Units for Spectral Features Quantitative Fields</b> </th></tr>
+  <tr>
+    <th>Peak Amplitude Method</th>
+    <th>Peak Amplitude Units</th>
+    <th>Concentration Units</th>
+  </tr>
+
+  <tr>
+  <td align="center"><%=h @spectral_feat_tbl_unit.peak_ampl_method   %></td>
+  <td align="center"><%=h @spectral_feat_tbl_unit.peak_ampl_unit     %></td>
+  <td align="center"><%=h @spectral_feat_tbl_unit.concentration_unit %></td>
+
+	<% if @spectral_feat_tbl_unit.new_record? %>
+		<td><%= link_to 'New',   {:controller => 'spectral_feat_tbl_unit', :action => "new", :id => @spectral_feat_tbl_unit.id} %></td>
+	<% else %>
+		<td><%= link_to 'Edit',   {:controller => 'spectral_feat_tbl_unit', :action => "edit", :id => @spectral_feat_tbl_unit.id} %></td>
+  	<td><%= link_to 'Delete', {:controller => 'spectral_feat_tbl_unit', :action => "destroy", :id => @spectral_feat_tbl_unit.id }, :confirm => 'Are you sure?', :method => :post %></td>
+	<% end %>
+	</tr>
+</table>
+

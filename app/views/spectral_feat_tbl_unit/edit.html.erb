@@ -1,0 +1,18 @@
+<h1>Section I - Units for Spectral Features Quantitative Fields</h1>
+
+<% if @edit_new_flag.downcase == 'editing' %>
+<%   @TargUrl = {:action => 'update', :id => @author} %>
+<% else %>
+<%   @TargUrl = {:action => 'create'} %>
+<% end  %>
+
+<%= form_for( @spectral_feat_tbl_unit, :url => @TargUrl ) do |f| %>
+  <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
+  <%= f.submit('Save') %>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to 'Back', {:controller => 'spectral_feature', :action => 'list_spect_feat' } %>
+<p></p>

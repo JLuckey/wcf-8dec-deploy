@@ -1,0 +1,18 @@
+  <% if @mode == 'new_keyword' %>
+      <% the_action       = 'create' %>
+      <% the_button_label = 'Save' %>
+  <% else %>
+      <% the_action       = 'update' %>
+      <% the_button_label = 'Update' %>
+  <% end %>
+
+  <% form_for( :keyword_rec,
+               :url    => {:action => the_action, :id => @keyword_rec.id}) do |formvar|  %>
+     SeqNum:   Keyword:    <br>
+     <%= formvar.text_field :seqnum,  :size => 6 %>
+     <%= formvar.text_field :keyword, :size => 40 %>
+     <%= submit_tag the_button_label %>
+  <% end %>
+
+
+

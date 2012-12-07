@@ -1,0 +1,54 @@
+<%= check_box('cb_show_help', 'checked', {:checked => session[:show_help]}) %> Show Help Text on Editing Pages
+
+<%#= observe_field( 'cb_show_help_checked',
+:url  => {:action => 'toggle_help_text', :id => '999', :field_name => 'checked' },
+:with => 'field_value', :type => :synchronous ) %>
+
+<h1>My Submissions</h1>
+<BR>
+<table id="submiss_list" border="0" cellpadding="5" cellspacing="5">
+  <tr>
+  <%#= 1.times do %>
+    <th> Submiss ID </th>
+    <th> ID + Rev </th>
+    <th> SSS ID </th>
+    <!-- <th> Technique </th> -->
+    <th> Title </th>
+    <th> Created On </th>
+    <th> Last Edit </th>
+    <th> Status </th>
+    <th> Status Date </th>
+  <%# end %>
+  </tr>
+
+<% for rec in @submission do %>
+    <tr>
+    <td align=center><%= rec.id %> </td>
+    <td align=center><%= "#{rec.parent_id}-#{rec.revision_num}" %> </td>
+
+    <td><%= rec.sss_ms_num %> </td>
+    <td><%#= rec.technique %> </td>
+    <td><%= rec.title %> </td>
+    <td><%= if rec.created_on then rec.created_on.strftime('%m-%d-%y') else '' end %> </td>
+    <td><%= if rec.updated_on then rec.updated_on.strftime('%m-%d-%y') else '' end %> </td>
+    <td><%= rec.submiss_status %> </td>
+    <td><%= if rec.submiss_status_date then rec.submiss_status_date.strftime('%m-%d-%y') else '' end %> </td>
+
+    <td><%= link_to 'Show', :action => 'show', :id => rec %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => rec }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%
+=begin %>
+<%= link_to 'Previous page', { :page => @submission_pages.current.previous } if @submission_pages.current.previous %>
+<%= link_to 'Next page', { :page => @submission_pages.current.next } if @submission_pages.current.next %>
+<%
+=end %>
+
+<br />
+
+<%#= link_to 'New Submission', :action => 'new' %>
+<p></p>
+

@@ -1,0 +1,9 @@
+<%= error_messages_for :user %>
+
+<h2 align=center>WECF Registration<br></h2>
+<h3 align=center>We are currently in beta testing for the WECF (Web-enabled
+Electronic Contributor's Form) and therefore are not accepting open registrations.
+If you would like to join the beta testing program, please send us an
+<a href="mailto:DevTeam@PublishInSSS.com?subject=WECF Beta Testing Info">email</a>.</h3>
+
+

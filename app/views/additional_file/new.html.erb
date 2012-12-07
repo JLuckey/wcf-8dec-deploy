@@ -1,0 +1,14 @@
+<h1>Section A - New Supplemental File</h1>
+
+<%= form_for(:additional_file,
+            :url  => {:action => 'create'},
+            :html => {:multipart => true} ) do |form| %>
+    File to Upload  <br>  <%= form.file_field('uploaded_file', {"size" => 80})  %> <br> <br>
+
+    Description <br> <%= form.text_area('description', {:rows => "4", :cols => "60"} ) %> <br><br>
+
+  <%= form.submit("Upload Data File") %>
+<% end %>
+
+<br>
+<%= link_to 'Back', :action => 'list' %>

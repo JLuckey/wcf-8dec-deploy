@@ -1,0 +1,32 @@
+<h1>Users Who Have Access to this Submission </h1>
+<table cellpadding=5px cellspacing=1px >
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>EMail</th>
+    <th>Phone</th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%=h user.send('first_name') %></td>
+    <td><%=h user.send('last_name') %></td>
+    <td><%=h user.send('email') %></td>
+    <td><%=h user.send('phone') %></td>
+    <td><%= link_to('Show', {:controller => 'user', :action => 'show', :id => user.id}) %></td>
+    <td><%= link_to('Remove',
+                    {:controller => 'user', :action => 'remove_user_from_submission', :id => user.id},
+                    :confirm => 'Remove ' + user.first_name + ' ' + user.last_name + ' from this submission?') %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to('Add a user to this Submission', {:controller => 'submission', :action => 'list_all_users', :id => user}) %>
+<br >
+<br >
+<br >
+
+
+

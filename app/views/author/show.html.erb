@@ -1,0 +1,22 @@
+
+<h1>Author Information - <%= @author.send('fname') + ' ' + @author.send('lname') %> </h1>
+
+<p><b>Seqnum:</b> <%=h(@author.send('seqnum')) %></p>
+<p><b>First Name:</b> <%=h(@author.send('fname')) %></p>
+<p><b>First Name:</b> <%=h(@author.send('lname')) %></p>
+<p><b>Organization Name:</b> <%=h(@author.send('organization_name')) %></p>
+<p><b>Department Name:</b> <%=h(@author.send('department_name')) %></p>
+<p><b>Address1:</b> <%=h(@author.send('address1')) %></p>
+<p><b>Address2:</b> <%=h(@author.send('address2')) %></p>
+<p><b>City:</b> <%=h(@author.send('city')) %></p>
+<p><b>State or Province:</b> <%=h(@author.send('state')) %></p>
+<p><b>Postal Code:</b> <%=h(@author.send('postal_code')) %></p>
+<p><b>Country:</b> <%=h(@author.send('country')) %></p>
+<p><b>Corresponding Author:</b> <%=h(@author.send('corresponding_author')) %></p>
+<p><b>Email:</b> <%=h(@author.send('email')) %></p>
+<p><b>Phone:</b> <%=h(@author.send('phone')) %></p>
+<p><b>Fax:</b> <%=h(@author.send('fax')) %></p>
+
+
+<%= link_to 'Edit', :action => 'edit', :id => @author %>
+<%#= link_to 'Back', :action => 'list' %>
