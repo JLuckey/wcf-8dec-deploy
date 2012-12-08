@@ -144,16 +144,20 @@ class SubmissionProofPdf < Prawn::Document
 			  text("<b>Reference #:</b> #{reference.seqnum}", :size => 10, :inline_format => true )
 			  text("  <b>Authors:</b> #{author_arr.join(', ')}", :size => 10, :inline_format => true )
 
-  			case reference.pub_type.downcase
-  				when 'journal'
-            text("  #{reference['title']} #{reference['volume']}, #{reference['pages']} (#{reference['year_published']})", :size => 10, :inline_format => true)
+  			if !reference.pub_type.blank?
+          case reference.pub_type.downcase
+    				when 'journal'
+              text("  #{reference['title']} #{reference['volume']}, #{reference['pages']} (#{reference['year_published']})", :size => 10, :inline_format => true)
 
-          when 'book'
-            text("  #{reference['title']} #{reference['edition']} #{format_publisher_info(reference)} #{reference['chapter']} #{reference['pages']}", :size => 10, :inline_format => true )
-                 
-  				else  # 'other' pub_type
-  	  			text("  #{reference['title']} #{format_publisher_info(reference)} #{reference['chapter']} #{reference['pages']}", :size => 10, :inline_format => true)
-  			end
+            when 'book'
+              text("  #{reference['title']} #{reference['edition']} #{format_publisher_info(reference)} #{reference['chapter']} #{reference['pages']}", :size => 10, :inline_format => true )
+                   
+    				else  # 'other' pub_type
+    	  			text("  #{reference['title']} #{format_publisher_info(reference)} #{reference['chapter']} #{reference['pages']}", :size => 10, :inline_format => true)
+    			end
+        else
+          text("  #{reference['title']} #{format_publisher_info(reference)} #{reference['chapter']} #{reference['pages']}", :size => 10, :inline_format => true)
+        end 
     		text(' ')
   	  end  
 		else
