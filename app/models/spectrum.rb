@@ -2,7 +2,7 @@ class Spectrum < ActiveRecord::Base
 
   self.table_name = "spectra"
   belongs_to :submission
-  has_many   :exp_variables, :dependent => :destroy
+  # has_many   :exp_variables, :dependent => :destroy
   has_many   :named_peaks
 
   def uploaded_file=(data_file_field)
