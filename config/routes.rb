@@ -102,6 +102,9 @@ Wcf3::Application.routes.draw do
 
   match  'paramset/edit/on_field_change/:id',  
   :to => 'paramset#on_field_change#id'
+
+  match  'paramset/on_field_change',  
+  :to => 'paramset#on_field_change'
   
   match 'paramset/destroy/:id',         :to => 'paramset#destroy#id'
   match 'paramset/update/:id',          :to => 'paramset#update#id'
