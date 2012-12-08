@@ -143,6 +143,12 @@ Wcf3::Application.routes.draw do
   match  'spectral_feature/edit_spect_feat/on_field_change/:id',    
   :to => 'spectral_feature#on_field_change#id'
   
+  match  'spectral_feature/edit_calib_info/on_field_change/:id',    
+  :to => 'spectral_feature#on_field_change#id'
+  
+  match  'spectral_feature/on_field_change',    
+  :to => 'spectral_feature#on_field_change'
+  
   match 'spectral_feature/destroy_spect_feat/:id', :to => 'spectral_feature#destroy_spect_feat#id'
   
   match 'spectral_feature/update_spect_feat/:id',  :to => 'spectral_feature#update_spect_feat#id'
@@ -155,6 +161,9 @@ Wcf3::Application.routes.draw do
   match 'spectral_feat_tbl_unit/update/:id',      :to => 'spectral_feat_tbl_unit#update#id'
   match 'spectral_feat_tbl_unit/new',             :to => 'spectral_feat_tbl_unit#new'
   match 'spectral_feat_tbl_unit/create',          :to => 'spectral_feat_tbl_unit#create'
+  match 'spectral_feat_tbl_unit/on_field_change', :to => 'spectral_feat_tbl_unit#on_field_change'
+  match 'spectral_feat_tbl_unit/edit/on_field_change/:id', :to => 'spectral_feat_tbl_unit#on_field_change#:id'
+
 
   match 'submission/show_my',               :to => 'submission#show_my'
   match 'submission/list_submiss_dump',     :to => 'submission#list_submiss_dump'

@@ -30,18 +30,19 @@ include ApplicationHelper
   end
 
   def create
-    @spectral_feat_tbl_unit = SpectralFeatTblUnit.new(params[:spectral_feat_tbl_unit] )
+    @spectral_feat_tbl_unit = SpectralFeatTblUnit.new( params[:field_name] => params[:field_value] )
     @spectral_feat_tbl_unit.submission_id = session[:submiss_id]
     @spectral_feat_tbl_unit.save
     session[:new_rec_id] = @spectral_feat_tbl_unit.id
-    redirect_to( {:controller => 'spectral_feature', :action => 'list_spect_feat'} )
+    # redirect_to( {:controller => 'spectral_feature', :action => 'list_spect_feat'} )
   end
 
 
-  def update
-    @spectral_feat_tbl_unit = SpectralFeatTblUnit.find(params[:id])
-    @spectral_feat_tbl_unit.update_attributes(params[:spectral_feat_tbl_unit])
-    redirect_to( {:controller => 'spectral_feature', :action => 'list_spect_feat'} )
+  def update(my_id)
+    @spectral_feat_tbl_unit = SpectralFeatTblUnit.find(my_id)
+    # @spectral_feat_tbl_unit.update_attributes(params[:spectral_feat_tbl_unit])
+    @spectral_feat_tbl_unit.update_attributes( params[:field_name] => params[:field_value] )
+    # redirect_to( {:controller => 'spectral_feature', :action => 'list_spect_feat'} )
   end
 
 

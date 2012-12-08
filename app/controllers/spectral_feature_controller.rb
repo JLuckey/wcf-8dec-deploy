@@ -55,25 +55,24 @@ include ApplicationHelper
     render(:layout => 'submission', :template => 'spectral_feature/edit')
   end
 
-  def create_spect_feat
-    # @spectral_feature = SpectralFeature.new(params[:field_name] => params[:field_value]) # (params[:spectral_feature])
-    @spectral_feature = SpectralFeature.new(params[:spectral_feature])
+  def create
+    @spectral_feature = SpectralFeature.new(params[:field_name] => params[:field_value]) # (params[:spectral_feature])
+    #@spectral_feature = SpectralFeature.new(params[:spectral_feature])
     @spectral_feature.submission_id = session[:submiss_id]
     @spectral_feature.spectral_type = session[:spectral_type_flag]
     @spectral_feature.save
     session[:new_rec_id] = @spectral_feature.id
-    redirect_to( :action => 'list_spect_feat' )
   end  
 
-  def create_calib_info
-    # @spectral_feature = SpectralFeature.new(params[:field_name] => params[:field_value]) # (params[:spectral_feature])
-    @spectral_feature = SpectralFeature.new(params[:spectral_feature])
-    @spectral_feature.submission_id = session[:submiss_id]
-    @spectral_feature.spectral_type = session[:spectral_type_flag]
-    @spectral_feature.save
-    session[:new_rec_id] = @spectral_feature.id
-    redirect_to( :action => 'list_calib_info' )
-  end  
+  # def create_calib_info
+  #   # @spectral_feature = SpectralFeature.new(params[:field_name] => params[:field_value]) # (params[:spectral_feature])
+  #   @spectral_feature = SpectralFeature.new(params[:spectral_feature])
+  #   @spectral_feature.submission_id = session[:submiss_id]
+  #   @spectral_feature.spectral_type = session[:spectral_type_flag]
+  #   @spectral_feature.save
+  #   session[:new_rec_id] = @spectral_feature.id
+  #   redirect_to( :action => 'list_calib_info' )
+  # end  
 
 
   # def create()
