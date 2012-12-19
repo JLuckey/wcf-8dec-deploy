@@ -1,10 +1,5 @@
 <h1><%= "Submission #{@submission.id} - Editing Admin-only Fields" %> </h1>
 
-<%# form_tag :action => 'update_admin_edit', :id => @submission do %>
-  <%#= render :partial => 'form_admin_edit' %>
-  <%#= submit_tag 'Save' %>
-<%# end %>
-
 <%= form_for( @submission, :url => {:action => 'update_admin_edit', :id => @submission.id} ) do |f| %>
 
 	<p>
@@ -16,13 +11,11 @@
 	<%= f.label :submiss_status_date %> <br>
 	<%= f.text_field :submiss_status_date %>
 	</p>
-
 	
 	<p>
 	<%= f.label :sss_ms_num %> <br>
 	<%= f.text_field :sss_ms_num %>
 	</p>
-
 	
 	<p>
 	<%= f.label :delete_flag %> <br>
