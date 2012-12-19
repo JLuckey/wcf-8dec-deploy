@@ -575,44 +575,6 @@ class SubmissionController < ApplicationController
 
 	end  # get_host_matl_character()
 
-  # ???JL pulled up to application_helper 
-  # def build_cs_str(list, field_name)    # build comma-separated string
-  #   arr = Array.new
-  #   list.each{ |x| arr.push(x[field_name]) }
-  #   return arr.join(', ')
-  # end
-
-	# def dorf(data_object, field_name)    # "Data or Field name"
-	# 	if data_object.attributes[field_name].blank?
-	# 		""                         #"[*#{field_name}*]"
-	# 	else
-	# 		data_object.attributes[field_name]
-	# 	end
-	# end  # dorf()
-
-
-  # def format_publisher_info(reference)
-  #   arr = Array.new
-  #   if !reference.publisher.blank?
-  #     arr.push(reference.publisher)
-  #   end
-    
-  #   if !reference.publisher_city.blank?
-  #     arr.push(reference.publisher_city)
-  #   end
-    
-  #   if !reference.year_published.blank?
-  #     arr.push(reference.year_published)
-  #   end
-
-  #   if arr.size > 0
-  #     return "(#{arr.join(', ')})"
-  #   else
-  #     return ''
-  #   end  
-    
-  # end   #format_publisher_info()
-
 
 	def send_submiss_proof_file()
 		send_file(session[:sub_proof_file_name])
