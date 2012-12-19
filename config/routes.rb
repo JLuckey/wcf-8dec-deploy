@@ -30,7 +30,7 @@ Wcf3::Application.routes.draw do
   # resources :spectrum
 
   resources :sessions, :only => [:new, :create, :destroy]
-  resources :users
+  resources :users, :controller => 'User'
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -180,6 +180,14 @@ Wcf3::Application.routes.draw do
   match 'submission/save_after_edit',       :to => 'submission#save_after_edit'
   match 'submission/list_all_users/:id',    :to => 'submission#list_all_users#:id'
   match 'submission/select_user/:id',       :to => 'submission#select_user#:id'
+  match 'submission/dump_submiss',          :to => 'submission#dump_submiss'
+  match 'submission/admin_edit',            :to => 'submission#admin_edit'
+  match 'submission/update_admin_edit/:id',     :to => 'submission#update_admin_edit#:id'
+  match 'submission/flag_for_deletion',     :to => 'submission#flag_for_deletion'
+  
+  match 'subm_cloning/clone_subm_driver',     :to => 'subm_cloning#clone_subm_driver'
+
+
  
   match 'submission_reference/list',        :to => 'submission_reference#list'
   match 'submission_reference/new',         :to => 'submission_reference#new'
@@ -195,6 +203,8 @@ Wcf3::Application.routes.draw do
   match 'user/edit',                        :to => 'user#edit'  # can be made Restful ???JL
   match 'user/show/:id',                    :to => 'user#show#id'
   match 'user/remove_user_from_submission/:id', :to => 'user#remove_user_from_submission#:id'
+  match 'user/update/:id',                    :to => 'user#update#id'
+
 
   match  'spectrum/list',                
   :to => 'spectrum#list'

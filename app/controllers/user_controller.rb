@@ -38,12 +38,19 @@ class UserController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'User was successfully updated.'
-      redirect_to :action => 'show', :id => @user
-    else
-      render :action => 'edit'
+
+    params[:user].each do |k, v|
+      @user.update_attribute(k, v)
     end
+    redirect_to :action => 'show', :id => @user
+
+    # if @user.update_attributes(params[:user])            # update_attributes causes validations to execute which is causing 
+    #   flash[:notice] = 'User was successfully updated.'  # probs when fields that are not updated from the User edit screen
+    #   redirect_to :action => 'show', :id => @user        # are validated when we dont want them to be.
+    # else
+    #   render :action => 'edit'
+    # end
+
   end
 
 

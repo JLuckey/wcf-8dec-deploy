@@ -1,74 +1,86 @@
-<%= error_messages_for 'user' %>
 
-<!--[form:user]-->
-<p><label for="user_login">Login</label><br/>
-<%= text_field 'user', 'login'  %></p>
+<%#= error_messages_for 'user' %>
 
-<p><label for="user_email">Email</label><br/>
-<%= text_field 'user', 'email'  %></p>
+<%= form_for( @user ) do |f| %>
 
-<!--       These fields should not be available from editing by the user  3/14/2008 15:53 JL
-<p><label for="user_crypted_password">Crypted password</label><br/>
-<%= password_field 'user', 'crypted_password'  %></p>
-
-<p><label for="user_salt">Salt</label><br/>
-<%= text_field 'user', 'salt'  %></p>
-
-<p><label for="user_created_at">Created at</label><br/>
-<%= datetime_select 'user', 'created_at'  %></p>
-
-<p><label for="user_updated_at">Updated at</label><br/>
-<%= datetime_select 'user', 'updated_at'  %></p>
-
-<p><label for="user_remember_token">Remember token</label><br/>
-<%= text_field 'user', 'remember_token'  %></p>
-
-<p><label for="user_remember_token_expires_at">Remember token expires at</label><br/>
-<%= datetime_select 'user', 'remember_token_expires_at'  %></p>
-
-<p><label for="user_role">Role</label><br/>
-<%= text_field 'user', 'role'  %></p>
-
-<p><label for="user_activation_code">Activation code</label><br/>
-<%= text_field 'user', 'activation_code'  %></p>
-
-<p><label for="user_activated_at">Activated at</label><br/>
-<%= datetime_select 'user', 'activated_at'  %></p>
-
--->
+<% @user.errors.full_messages.each do |msg| %>
+<p><%= msg %></p>
+<% end %>
 
 
-<p><label for="user_first_name">First name</label><br/>
-<%= text_field 'user', 'first_name'  %></p>
+	<p>
+	<%= f.label :login %><br>	
+	<%= f.text_field :login %>
+  </p>
 
-<p><label for="user_last_name">Last name</label><br/>
-<%= text_field 'user', 'last_name'  %></p>
+	<p>
+	<%= f.label :email %> <br/>
+	<%= f.text_field :email %>
+	</p>
 
-<p><label for="user_institute_name">Institute name</label><br/>
-<%= text_field 'user', 'institute_name'  %></p>
+	<p>
+	<%= f.label :first_name %><br/>
+	<%= f.text_field :first_name %>
+  </p>
 
-<p><label for="user_address1">Address1</label><br/>
-<%= text_field 'user', 'address1'  %></p>
+	<p>
+	<%= f.label :last_name %> <br/>
+	<%= f.text_field :last_name %>
+  </p>
 
-<p><label for="user_address2">Address2</label><br/>
-<%= text_field 'user', 'address2'  %></p>
+	<p>
+	<%= f.label :institute_name %> <br/>
+	<%= f.text_field :institute_name %>
+  </p>
 
-<p><label for="user_city">City</label><br/>
-<%= text_field 'user', 'city'  %></p>
+  <p>
+	<%= f.label :address1 %> <br/>
+	<%= f.text_field :address1 %>
+  </p>
 
-<p><label for="user_state">State</label><br/>
-<%= text_field 'user', 'state'  %></p>
+	<p>
+	<%= f.label :address2 %> <br/>
+	<%= f.text_field :address2 %>
+  </p>
 
-<p><label for="user_postal_code">Postal code</label><br/>
-<%= text_field 'user', 'postal_code'  %></p>
+	<p>
+	<%= f.label :city %> <br/>
+	<%= f.text_field :city %>
+  </p>
 
-<p><label for="user_country">Country</label><br/>
-<%= text_field 'user', 'country'  %></p>
+	<p>
+	<%= f.label :state %> <br/>
+	<%= f.text_field :state %>
+  </p>
 
-<p><label for="user_phone">Phone</label><br/>
-<%= text_field 'user', 'phone'  %></p>
+	<p>
+	<%= f.label :postal_code %> <br/>
+	<%= f.text_field :postal_code %>
+  </p>
 
-<p><label for="user_fax">Fax</label><br/>
-<%= text_field 'user', 'fax'  %></p>
-<!--[eoform:user]-->
+	<p>
+	<%= f.label :country %> <br/>
+	<%= f.text_field :country %>
+  </p>
 
+	<p>
+	<%= f.label :phone %> <br/>
+	<%= f.text_field :phone %>
+  </p>
+
+	<p>
+	<%= f.label :fax %> <br/>
+	<%= f.text_field :fax %>
+  </p>
+
+	<p>
+	<%= f.label :show_splash %> <br/>
+	<%= f.select :show_splash, ['Y','N'] %>
+  </p>
+
+	<p>
+	<%= f.submit %>
+  </p>
+
+
+<% end %>

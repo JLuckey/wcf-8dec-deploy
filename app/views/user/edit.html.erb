@@ -1,10 +1,11 @@
 <h1>Editing My User Profile</h1>
 
-<% form_tag :action => 'update', :id => @user do %>
+<%# form_tag :action => 'update', :id => @user do %>
   <%= render :partial => 'form' %>
 	<br>
-  <%= submit_tag 'Save Changes' %>
-<% end %>
+  <%#= submit_tag 'Save Changes' %>
+<%# end %>
 
 <br>
 <br>
+<%= debug(params) %>

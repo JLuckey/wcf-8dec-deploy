@@ -1357,7 +1357,7 @@ logger.info( "\n*** DCS-DEBUG --> #{Time.now} - End qry Instruments")
 
 
 	def update_admin_edit()
-    if is_member_of(:submission.id)
+    if is_member_of(session[:submiss_id])
       @submission = Submission.find(params[:id])
 			@submission.update_attributes(params[:submission])
 		end

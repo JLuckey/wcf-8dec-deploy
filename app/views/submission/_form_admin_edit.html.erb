@@ -1,6 +1,18 @@
-<%= error_messages_for 'submission' %>
+<%#= error_messages_for 'submission' %>
 
 <!--[form:admin_edit]-->
+<% form_for( @submission ) do |f| %>
+
+<p>
+<%= f.label :submiss_status %>
+<%= f.select :submiss_status, @submiss_status_choices %>
+</p>
+
+<p>
+<%= f.label :submiss_status_date %>
+<%= f.select :submiss_status_date %>
+</p>
+
 
 <p><label for="submission_submiss_status">Submission Status:</label><br/>
 <%= select('submission', 'submiss_status', @submiss_status_choices)  %></p>
@@ -14,6 +26,7 @@
 <p><label for="submission_delete_flag">Delete Flag: (YYYY-MM-DD Putting a date here removes this submission from displays)</label><br/>
 <%= text_field 'submission', 'delete_flag'  %></p>
 
+<% end %>
 <!--[eoform:admin_edit]-->
 
 
