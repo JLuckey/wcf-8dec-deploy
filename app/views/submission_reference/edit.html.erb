@@ -12,7 +12,7 @@
 <%   @TargUrl = {:action => 'create'} %>
 <% end  %>
 
-<%= form_for(@submission_reference, :url => @TargUrl) do |f| %>
+<%= form_for(@submission_reference, :url => {:action => 'save'}) do |f| %>
   <%= render( :partial => 'layouts/field_group', :collection => @field_list )%>
   <%= f.submit('Save') %>
 <% end %>
