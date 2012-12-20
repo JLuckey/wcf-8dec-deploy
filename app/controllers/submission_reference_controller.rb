@@ -65,24 +65,14 @@ include ApplicationHelper
 
   def update(my_submission_reference)
     @submission_reference = SubmissionReference.find(my_submission_reference)
-    # @submission_reference = SubmissionReference.find(params[:id])
     @submission_reference.update_attributes(params[:field_name] => params[:field_value] )
-    # @submission_reference.update_attributes(params[:submission_reference] )
-    # render(:layout => 'submission')
-    # redirect_to({:action => 'show', :id => @submission_reference})
-    # redirect_to({:action => 'list'})
-    # render(:nothing => true)
   end
 
 
   def save
     @submission_reference = SubmissionReference.find(params[:id])
-    # @submission_reference.update_attributes(params[:field_name] => params[:field_value] )
     @submission_reference.update_attributes(params[:submission_reference] )
-    # render(:layout => 'submission')
     redirect_to({:action => 'show', :id => @submission_reference})
-    # redirect_to({:action => 'list'})
-    
   end
 
 
