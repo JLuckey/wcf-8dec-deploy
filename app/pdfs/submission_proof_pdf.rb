@@ -161,7 +161,7 @@ class SubmissionProofPdf < Prawn::Document
     		text(' ')
   	  end  
 		else
-			pdf.text('Reference Section does not contain any data')
+			text('Reference Section does not contain any data')
 		end
 		text(' ')
   end # sectionA

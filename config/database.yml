@@ -15,7 +15,7 @@ development:
   database: wcf_dev
   pool: 5
   username: root
-  password: skyhawk1961
+  password: airboss   #skyhawk1961
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
